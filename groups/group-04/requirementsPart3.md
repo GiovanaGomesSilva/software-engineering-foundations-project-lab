@@ -22,6 +22,9 @@ Condições consideradas verdadeiras para o desenvolvimento.
 - Assume-se que o operador do painel administrativo é um usuário não técnico, responsável apenas pela gestão operacional.
 - Assume-se que a manutenção técnica do sistema é responsabilidade da equipe de desenvolvimento.
 - Assume-se que o controle de acesso físico (catracas e reconhecimento facial) continuará operando de forma independente.
+- Assume-se que o módulo de interface será desenvolvido de forma agnóstica, consumindo dados via API independentemente da origem do sistema gerenciador.
+- Assume-se que a arquitetura modular permitirá adoção por outras instituições, com ou sem sistema gerenciador próprio.
+- Assume-se que instituições sem sistema de gestão próprio utilizarão o módulo gerenciador completo fornecido pela plataforma.
 - O login institucional é restrito ao SUAP; usuários externos não utilizam autenticação institucional.
 - O operador não possui acesso a configurações técnicas do sistema, apenas às funcionalidades operacionais.
 - A manutenção técnica, atualizações de infraestrutura e correções de sistema são de responsabilidade exclusiva da equipe desenvolvedora.
