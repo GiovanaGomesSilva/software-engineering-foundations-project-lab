@@ -22,9 +22,6 @@ Condições consideradas verdadeiras para o desenvolvimento.
 - Assume-se que o operador do painel administrativo é um usuário não técnico, responsável apenas pela gestão operacional.
 - Assume-se que a manutenção técnica do sistema é responsabilidade da equipe de desenvolvimento.
 - Assume-se que o controle de acesso físico (catracas e reconhecimento facial) continuará operando de forma independente.
-
-
-
 - O login institucional é restrito ao SUAP; usuários externos não utilizam autenticação institucional.
 - O operador não possui acesso a configurações técnicas do sistema, apenas às funcionalidades operacionais.
 - A manutenção técnica, atualizações de infraestrutura e correções de sistema são de responsabilidade exclusiva da equipe desenvolvedora.
