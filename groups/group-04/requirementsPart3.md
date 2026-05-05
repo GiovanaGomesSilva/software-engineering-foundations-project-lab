@@ -7,9 +7,13 @@ Condições consideradas verdadeiras para o desenvolvimento.
 - Liste fatores externos ou suposições do projeto
 
 ### Exemplos:
-- Assume-se que os usuários terão acesso à internet.
-- Assume-se que os dados dos sensores serão confiáveis.
-- Assume-se que o sistema será utilizado via navegador web.
+- Assume-se que estudantes e servidores possuem cadastro ativo no SUAP da UFR.
+- Assume-se que os usuários possuem acesso à internet (via Wi-Fi do campus ou dados móveis) para operar o sistema.
+- Assume-se que os usuários possuem dispositivos compatíveis com navegadores modernos ou smartphones.
+- Assume-se que usuários externos poderão utilizar o RU mediante pagamento de valor diferenciado, sem necessidade de cadastro institucional.
+- Assume-se que a API do SUAP estará disponível e acessível para autenticação dos usuários institucionais.
+- Assume-se que o sistema interno do RU da UFR expõe ou poderá expor uma API para integração com o módulo de interface.
+- Assume-se a disponibilidade de uma API de pagamento externa para processamento de transações via Pix.
 
 
   
