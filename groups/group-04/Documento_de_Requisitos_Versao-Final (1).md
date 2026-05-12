@@ -107,7 +107,19 @@ O projeto se fundamenta em três pilares:
 ##  3. Visão Geral do Sistema
 
 ### 3.1 Descrição Geral
-Explique o sistema de forma resumida.
+O PODE PAPAR é uma plataforma digital modular e desacoplada desenvolvida para modernizar os serviços do Restaurante Universitário da UFR. O sistema é estruturado em dois módulos independentes que se comunicam via API REST:
+
+#### Módulo de Interface (Frontend PWA)
+
+O Módulo de Interface (Frontend PWA) é a camada voltada ao usuário final, acessível via navegador ou instalável como aplicativo em dispositivos móveis. Por meio dele, estudantes e servidores podem realizar login via SUAP, consultar saldo, visualizar o cardápio semanal, recarregar créditos via Pix ou cartão de crédito, acessar histórico de recargas e check-ins, e receber notificações do RU.
+
+#### Módulo Gerenciador (Backend + Painel Administrativo)
+
+O Módulo Gerenciador (Backend + Painel Administrativo) é a camada de gestão operacional, destinada aos administradores e operadores do RU. Permite o gerenciamento de usuários, créditos, cardápio e a geração de relatórios visuais, sem exigir conhecimento técnico do operador.
+
+---
+
+Essa separação garante flexibilidade de implantação: no caso da UFR, o frontend pode ser integrado via API ao sistema já existente do RU; em outras instituições sem sistema próprio, o pacote completo pode ser implantado.
 
 ### 3.2 Stakeholders
 Liste os principais envolvidos:
