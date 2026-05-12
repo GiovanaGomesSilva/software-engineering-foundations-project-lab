@@ -315,154 +315,174 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 - Os dados exibidos nos relatórios devem ser anonimizados quando exportados para fins estatísticos.
 ---
 
-5. Requisitos Não Funcionais
-   
-5.1 Usabilidade
+# 5. Requisitos Não Funcionais
 
-RNF01 — A interface do sistema deve ser intuitiva e de fácil navegação, permitindo que estudantes e servidores realizem suas ações principais sem necessidade de treinamento prévio.
-RNF02 — O sistema deve ser compatível com dispositivos móveis, adaptando-se responsivamente a diferentes tamanhos de tela (smartphones e tablets).
-RNF03 — O sistema deve oferecer recursos de acessibilidade, incluindo alto contraste e alternância entre tema claro e escuro, configuráveis pelo próprio usuário.
-RNF04 — O sistema deve possuir um modo para pessoas com deficiência visual, com suporte a leitores de tela e leitura de textos presentes na interface, garantindo inclusão a todos os membros da comunidade acadêmica.
+---
 
-5.2 Eficiência
+## 5.1 Usabilidade
 
-RNF05 — O sistema deve responder às requisições em até 2 segundos em condições normais de uso, assegurando uma experiência ágil para os usuários.
-RNF06 — O sistema deve suportar múltiplos acessos simultâneos com perda mínima de desempenho, mantendo a estabilidade especialmente nos horários de pico do RU.
+* *RNF01* — A interface do sistema deve ser intuitiva e de fácil navegação, permitindo que estudantes e servidores realizem suas ações principais sem necessidade de treinamento prévio.
+* *RNF02* — O sistema deve ser compatível com dispositivos móveis, adaptando-se responsivamente a diferentes tamanhos de tela (smartphones e tablets).
+* *RNF03* — O sistema deve oferecer recursos de acessibilidade, incluindo alto contraste e alternância entre tema claro e escuro, configuráveis pelo próprio usuário.
+* *RNF04* — O sistema deve possuir um modo para pessoas com deficiência visual, com suporte a leitores de tela e leitura de textos presentes na interface, garantindo a inclusão a todos os membros da comunidade acadêmica.
 
-5.3 Desempenho
+---
 
-RNF07 — O sistema deve responder às requisições em até 2 segundos em condições normais de uso.
-RNF08 — O sistema deve suportar múltiplos acessos simultâneos — estimados em até 1.000 usuários — com perda mínima de desempenho, garantindo estabilidade em horários de pico.
-RNF09 — O sistema deve estar disponível 99% do tempo, desconsiderando janelas de manutenção programada previamente comunicadas aos usuários.
-RNF10 — O sistema deve apresentar tempo de recuperação rápido em caso de falhas, minimizando interrupções ao usuário e retomando a operação normal em até 15 minutos.
+## 5.2 Eficiência
 
-5.4 Espaço
+* *RNF05* — O sistema deve responder às requisições em até 2 segundos em condições normais de uso, garantindo uma experiência ágil para os usuários.
+* *RNF06* — O sistema deve suportar múltiplos acessos simultâneos com perda mínima de desempenho, mantendo a estabilidade especialmente nos horários de pico do RU.
 
-RNF11 — O sistema deve utilizar armazenamento de forma eficiente, priorizando a compressão de dados históricos com baixa frequência de acesso (ex.: relatórios e logs antigos).
-RNF12 — O uso de memória em servidor deve ser monitorado continuamente, com alertas automáticos ao atingir 80% da capacidade alocada.
-RNF13 — Dados de cardápio, saldo e histórico de transações devem ser dimensionados para suportar o crescimento da base de usuários da UFR sem degradação de performance.
+---
 
-5.5 Confiabilidade
+## 5.3 Desempenho
 
-RNF14 — O sistema deve estar disponível pelo menos 99% do tempo, desconsiderando manutenções programadas.
-RNF15 — O sistema deve possuir mecanismos de backup automático de dados, com cópias realizadas diariamente e armazenadas em local seguro e geograficamente separado.
-RNF16 — O sistema deve possuir mecanismos de recuperação de falhas que permitam o restabelecimento da operação em tempo hábil, com perda mínima ou nula de dados.
-RNF17 — O sistema deve garantir a integridade dos dados durante operações de recarga e pagamento, utilizando transações atômicas para evitar inconsistências em caso de falha parcial.
+* *RNF07* — O sistema deve responder às requisições em até 2 segundos em condições normais de uso.
+* *RNF08* — O sistema deve suportar múltiplos acessos simultâneos — estimados em até 1.000 usuários — com perda mínima de desempenho, garantindo estabilidade em horários de pico.
+* *RNF09* — O sistema deve estar disponível 99% do tempo, desconsiderando janelas de manutenção programadas previamente comunicadas aos usuários.
+* *RNF10* — O sistema deve apresentar tempo de recuperação rápido em caso de falhas, minimizando interrupções ao usuário e retomando a operação normal em até 15 minutos.
 
-5.6 Segurança (Proteção)
+---
 
-RNF18 — O acesso ao sistema deve ser limitado à autenticação via SUAP, não sendo permitidas formas alternativas de login ou criação de senhas locais.
-RNF19 — O sistema deve garantir a integridade e o sigilo das informações durante todas as operações financeiras, em conformidade com os padrões de segurança aplicáveis (ex.: PCI-DSS para transações com cartão).
-RNF20 — O sistema deve implementar controle de acesso baseado em perfis (RBAC), assegurando que cada usuário acesse apenas os recursos e dados compatíveis com seu nível de permissão (estudante, servidor ou administrador).
+## 5.4 Espaço
 
-6. Requisitos Organizacionais
+* *RNF11* — O sistema deve utilizar armazenamento de forma eficiente, priorizando a especificação de dados históricos com baixa frequência de acesso (ex.: relatórios e registros antigos).
+* *RNF12* — O uso de memória em servidor deve ser monitorado continuamente, com alertas automáticos ao atingir 80% da capacidade alocada.
+* *RNF13* — Dados de cardápio, saldo e histórico de transações devem ser dimensionados para suportar o crescimento da base de usuários da UFR sem manipulação de desempenho.
 
-6.1 Ambientais
-Sistema Operacional
+---
 
-O sistema deverá ser compatível com ambientes Linux para hospedagem em servidor, devido à sua estabilidade, segurança e ampla utilização em aplicações web modernas.
-A aplicação cliente deverá funcionar nos principais sistemas operacionais utilizados pela comunidade acadêmica, incluindo Windows, Linux e Android, por meio de navegadores atualizados compatíveis com os padrões web modernos.
+## 5.5 Confiabilidade
 
-Infraestrutura
+* *RNF14* — O sistema deve estar disponível pelo menos 99% do tempo, desconsiderando as manutenções programadas.
+* *RNF15* — O sistema deve possuir mecanismos de backup automático de dados, com cópias realizadas diariamente e armazenadas em local seguro e geograficamente separado.
+* *RNF16* — O sistema deve possuir mecanismos de recuperação de falhas que permitam o restabelecimento da operação em tempo hábil, com perda mínima ou nula de dados.
+* *RNF17* — O sistema deve garantir a integridade dos dados durante operações de recarga e pagamento, utilizando transações atômicas para evitar inconsistências em caso de falha parcial.
 
-A infraestrutura do sistema deverá ser baseada em arquitetura web desacoplada, separando Front-end, Back-end e banco de dados, permitindo maior escalabilidade e facilidade de manutenção.
-O sistema deverá ser hospedado em servidores com suporte a:
+---
 
-- APIs REST;
-- Banco de dados relacional;
-- Comunicação segura via HTTPS/TLS;
-- Rotinas automatizadas de backup;
-- Monitoramento de disponibilidade e desempenho.
+## 5.6 Segurança (Proteção)
 
-A infraestrutura também deverá suportar integração com serviços externos, como:
+* *RNF18* — O acesso ao sistema deve ser limitado à autenticação via SUAP, não sendo permitidas formas alternativas de login ou criação de senhas locais.
+* *RNF19* — O sistema deve garantir a integridade e o sigilo das informações durante todas as operações financeiras, em conformidade com os padrões de segurança aplicáveis (ex.: PCI-DSS para transações com cartão).
+* *RNF20* — O sistema deve implementar controle de acesso baseado em perfis (RBAC), garantindo que cada usuário acesse apenas os recursos e dados compatíveis com seu nível de permissão (estudante, servidor ou administrador).
 
-- SUAP, para autenticação institucional;
-- Gateways de pagamento, para processamento de recargas via Pix e cartão de crédito.
+---
 
-6.2 Operacionais
+# 6. Requisitos Organizacionais
 
-Logs
+---
 
-O sistema deverá registrar logs das principais operações realizadas pelos usuários e administradores, garantindo rastreabilidade e auditoria das ações executadas.
+## 6.1 Ambientes
 
-Os logs devem incluir:
+### Sistema Operacional
 
-- Autenticações realizadas;
-- Tentativas de acesso inválidas;
-- Recargas de saldo;
-- Alterações administrativas;
-- Publicação e edição de cardápios;
-- Operações relacionadas ao consumo de créditos.
+O sistema deverá ser compatível com ambientes Linux para hospedagem em servidores, devido à sua estabilidade, segurança e ampla utilização em aplicações web modernas. A aplicação cliente deverá operar os principais sistemas operacionais utilizados pela comunidade acadêmica, incluindo Windows, Linux e Android, por meio de navegadores atualizados compatíveis com os padrões web modernos.
 
-Os registros deverão armazenar:
+### Infraestrutura
 
-- Data e hora da operação;
-- Usuário responsável;
-- Tipo da ação executada;
-- Resultado da operação (sucesso ou falha).
+A infraestrutura do sistema deverá ser baseada em arquitetura web desacoplada, separando Front-end, Back-end e banco de dados, permitindo maior escalabilidade e facilidade de manutenção. O sistema deverá ser hospedado em servidores com suporte a:
 
-Os logs administrativos deverão possuir acesso restrito apenas a usuários autorizados.
+* APIs REST;
+* Banco de dados relationl;
+* Comunicação segura via HTTPS/TLS;
+* Rotinas automáticas de backup;
+* Monitoramento de disponibilidade e desempenho.
 
-Monitoramento
+A infraestrutura também deve suportar integração com serviços externos, como:
+
+* SUAP, para autenticação institucional;
+* Gateways de pagamento, para processamento de recargas via Pix e cartão de crédito.
+
+---
+
+## 6.2 Operacionais
+
+### Registros
+
+O sistema deverá registrar os logs das principais operações realizadas pelos usuários e administradores, garantindo rastreabilidade e auditoria das ações realizadas.
+
+Os registros devem incluir:
+
+* Autenticações realizadas;
+* Tentativas de acesso inválidas;
+* Recargas de saldo;
+* Alterações administrativas;
+* Publicação e edição de cardápios;
+* Operações relacionadas ao consumo de créditos.
+
+Os registros devem ser armazenados:
+
+* Data e hora da operação;
+* Usuário responsável;
+* Tipo da prática;
+* Resultado da operação (sucesso ou falha).
+
+Os registros administrativos deverão ter acesso restrito apenas a usuários autorizados.
+
+### Monitoramento
 
 O sistema deverá possuir mecanismos de monitoramento contínuo da aplicação e da infraestrutura, permitindo identificar falhas, lentidão ou indisponibilidade do serviço.
 
-O monitoramento deverá acompanhar:
+O monitoramento deverá monitorar:
 
-- Uso de CPU, memória e armazenamento;
-- Tempo médio de resposta das requisições;
-- Taxa de erros da aplicação;
-- Disponibilidade do sistema;
-- Consumo de recursos do banco de dados.
+* Uso de CPU, memória e armazenamento;
+* Tempo médio de resposta das requisições;
+* Taxa de erros da aplicação;
+* Disponibilidade do sistema;
+* Consumo de recursos do banco de dados.
 
 O sistema deverá emitir alertas automáticos em caso de:
 
-- Indisponibilidade dos serviços;
-- Alto consumo de recursos;
-- Falhas em integrações externas;
-- Erros críticos em operações financeiras.
+* Indisponibilidade dos serviços;
+* Alto consumo de recursos;
+* Falhas em integrações externas;
+* Erros críticos em operações financeiras.
 
-6.3 Desenvolvimento
+---
 
-Versionamento (Git)
+## 6.3 Desenvolvimento
 
-O desenvolvimento do sistema deverá utilizar Git como ferramenta oficial de controle de versão, permitindo rastreamento de alterações no código-fonte e colaboração entre os desenvolvedores.
+### Versionamento (Git)
+
+O desenvolvimento do sistema deverá utilizar o Git como ferramenta oficial de controle de versão, permitindo rastreamento de alterações no código-fonte e colaboração entre os desenvolvedores.
 
 O repositório deverá manter:
 
-- Histórico completo de alterações;
-- Controle de branches para desenvolvimento, testes e produção;
-- Registro de autoria das modificações;
-- Padronização de mensagens de commit.
+* Histórico completo de alterações;
+* Controle de filiais para desenvolvimento, testes e produção;
+* Registro de autoria das modificações;
+* Padronização de mensagens de commit.
 
-As alterações no sistema deverão ser revisadas antes da integração à branch principal.
+As alterações no sistema deverão ser revisadas antes da integração com a filial principal.
 
-Padrões de Código
+### Padrões de Código
 
 O projeto deverá seguir padrões de desenvolvimento que garantam legibilidade, organização e facilidade de manutenção do código.
 
-As diretrizes incluem:
+Assim também:
 
-- Padronização de nomenclatura de variáveis, funções e classes;
-- Separação de responsabilidades entre módulos;
-- Documentação básica das APIs e componentes principais;
-- Utilização de boas práticas de segurança e desenvolvimento web;
-- Estrutura modular compatível com a arquitetura desacoplada definida no projeto.
+* Padronização de nomenclatura de variáveis, cargos e classes;
+* Separação de responsabilidades entre módulos;
+* Documentação básica das APIs e componentes principais;
+* Utilização de boas práticas de segurança e desenvolvimento web;
+* Estrutura modular compatível com a arquitetura desacoplada definida no projeto.
 
-O código deverá priorizar clareza e manutenção futura, reduzindo acoplamento excessivo entre componentes.
+O código deve priorizar claramente e manutenção futura, além de cobertura superficial entre componentes.
 
-Testes Automatizados
+### Testes Automatizados
 
 O sistema deverá possuir testes automatizados para validar o funcionamento das principais funcionalidades da aplicação.
 
-Os testes deverão abranger:
+Os testes abragar:
 
-- Testes unitários;
-- Testes de integração;
-- Testes de APIs;
-- Validação das regras de negócio críticas, especialmente operações financeiras e autenticação.
+* Testes unitários;
+* Testes de integração;
+* Testes de APIs;
+* Validação das regras de negócio críticas, especialmente operações financeiras e autenticação.
 
-As rotinas de teste deverão ser executadas antes da publicação de novas versões do sistema, reduzindo riscos de falhas em produção.
+As rotinas de teste devem ser realizadas antes da publicação de novas versões do sistema, reduzindo riscos de falhas na produção.
+
 
 ##  7. Requisitos Externos
 
