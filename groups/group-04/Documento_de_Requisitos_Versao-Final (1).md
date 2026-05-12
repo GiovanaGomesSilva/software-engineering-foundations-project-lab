@@ -117,7 +117,7 @@ O Módulo de Interface (Frontend PWA) é a camada voltada ao usuário final, ace
 
 O Módulo Gerenciador (Backend + Painel Administrativo) é a camada de gestão operacional, destinada aos administradores e operadores do RU. Permite o gerenciamento de usuários, créditos, cardápio e a geração de relatórios visuais, sem exigir conhecimento técnico do operador.
 
----
+--
 
 Essa separação garante flexibilidade de implantação: no caso da UFR, o frontend pode ser integrado via API ao sistema já existente do RU; em outras instituições sem sistema próprio, o pacote completo pode ser implantado.
 
