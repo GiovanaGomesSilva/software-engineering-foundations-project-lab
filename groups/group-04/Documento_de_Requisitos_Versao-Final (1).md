@@ -32,8 +32,22 @@ O sistema contempla:
 
 
 ### 1.3 Definições, Acrônimos e Abreviações
-Liste termos importantes utilizados no documento.
+### Glossário
 
+| Termo | Definição |
+|------|----------|
+| RU | Restaurante Universitário da UFR |
+| UFR | Universidade Federal de Rondonópolis |
+| SUAP | Sistema Unificado de Administração Pública — sistema institucional de autenticação |
+| PWA | Progressive Web App — aplicação web instalável com comportamento similar a um app nativo |
+| API | Application Programming Interface — interface de integração entre sistemas |
+| REST | Representational State Transfer — estilo arquitetural para APIs web |
+| OAuth2 | Protocolo de autorização utilizado para autenticação via SUAP |
+| JWT | JSON Web Token — padrão de autenticação por token entre frontend e backend |
+| Pix | Sistema de pagamento instantâneo do Banco Central do Brasil |
+| LGPD | Lei Geral de Proteção de Dados — Lei nº 13.709/2018 |
+| RBAC | Role-Based Access Control — controle de acesso baseado em perfis de usuário |
+| CI/CD | Integração e entrega contínua — prática de automação de deploy |
 ---
 
 ##  2. Product Vision
