@@ -634,8 +634,6 @@ A tabela abaixo apresenta as principais tecnologias previstas para o desenvolvim
 
 ## 8.4 Decisões Arquiteturais
 
-As decisões arquiteturais foram definidas a partir dos requisitos não funcionais do sistema, principalmente desempenho, segurança e escalabilidade. Essas decisões orientam a escolha das tecnologias e a forma como os componentes da aplicação se relacionam.
-
 ### Desempenho
 
 No quesito desempenho, será utilizado o Redis como camada de cache, possibilitando o armazenamento temporário de dados acessados frequentemente, como cardápio, configurações e informações de sessão. Dessa forma, o sistema conseguirá reduzir consultas repetidas ao banco de dados, o que, consequentemente, melhorará o tempo de resposta da aplicação.
