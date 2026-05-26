@@ -658,62 +658,398 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 ##  9. Casos de Uso
 
+## 9. Casos de Uso
+
+Os casos de uso descrevem as principais interações entre os usuários e o sistema PODE PAPAR. Eles foram definidos com base nos requisitos funcionais do projeto, considerando os usuários institucionais, operadores do Restaurante Universitário e administradores do sistema.
+
+---
+
 ### UC01 - Autenticar no Sistema
 
 **Ator:** Usuário institucional
 
-**Descrição:** Permite que estudantes e servidores acessem o sistema utilizando credenciais institucionais.
+**Descrição:** Permite que estudantes e servidores acessem o sistema utilizando suas credenciais institucionais por meio da integração com o SUAP.
 
 **Fluxo principal:**  
-1. O usuário acessa o sistema.
-2. O sistema redireciona o usuário para autenticação via SUAP.
-3. O usuário informa suas credenciais institucionais.
-4. O SUAP valida os dados e retorna a autorização.
-5. O sistema libera o acesso à tela inicial.
+1. O usuário acessa o sistema pelo navegador ou pela PWA instalada.
+2. O sistema exibe a opção de login institucional.
+3. O usuário seleciona a opção de autenticação via SUAP.
+4. O sistema redireciona o usuário para a tela de autenticação institucional.
+5. O usuário informa suas credenciais.
+6. O SUAP valida os dados informados.
+7. O sistema recebe a autorização de acesso.
+8. O sistema inicia a sessão do usuário e exibe a tela inicial.
 
 **Fluxo alternativo:**  
-- Caso as credenciais sejam inválidas, o acesso é negado e uma mensagem de erro é exibida.
-- Caso ocorra falha de conexão, o usuário é informado e pode tentar novamente.
+- Caso as credenciais sejam inválidas, o sistema nega o acesso e exibe uma mensagem de erro.
+- Caso o SUAP esteja indisponível, o sistema informa a falha temporária e orienta o usuário a tentar novamente.
+- Caso ocorram muitas tentativas inválidas, o sistema pode bloquear temporariamente novas tentativas de acesso.
 
 ---
+
 ### UC02 - Consultar Saldo
 
 **Ator:** Usuário institucional autenticado
 
-**Descrição:** Permite que o usuário visualize o seu saldo disponível.
+**Descrição:** Permite que o usuário consulte o saldo disponível em sua conta do RU, evitando a necessidade de consulta presencial.
 
 **Fluxo principal:**  
-1. O usuário acessa a opção de saldo.
-2. O sistema consulta as informações vinculadas ao usuário.
-3. O sistema exibe o saldo disponível.
+1. O usuário acessa o sistema autenticado.
+2. O sistema carrega a tela inicial do usuário.
+3. O sistema consulta o saldo vinculado à conta do usuário.
+4. O sistema exibe o saldo atualizado.
+5. O usuário visualiza o valor disponível para utilização no RU.
 
 **Fluxo alternativo:**  
-- Caso não seja possível consultar o saldo, o sistema exibe uma mensagem informativa.
+- Caso não seja possível atualizar o saldo no momento, o sistema exibe o último saldo disponível e informa que houve falha na atualização.
+- Caso o usuário não possua saldo cadastrado, o sistema exibe saldo igual a zero.
+- Caso ocorra falha de comunicação com o servidor, o sistema exibe uma mensagem informativa.
 
 ---
+
 ### UC03 - Recarregar Saldo
 
 **Ator:** Usuário institucional autenticado
 
-**Descrição:** Permite que o usuário adicione créditos à sua conta por meio de pagamento digital.
+**Descrição:** Permite que o usuário adicione créditos à sua conta por meio de pagamento digital, utilizando Pix ou cartão de crédito, conforme disponibilidade da instituição.
 
 **Fluxo principal:**  
 1. O usuário acessa a área de recarga.
 2. O usuário informa o valor desejado.
-3. O sistema gera a cobrança.
-4. O usuário realiza o pagamento.
-5. O sistema confirma o pagamento.
-6. O sistema atualiza o saldo do usuário.
+3. O sistema verifica se o valor atende ao mínimo definido pelo administrador.
+4. O usuário seleciona o método de pagamento disponível.
+5. O sistema gera a cobrança.
+6. O usuário realiza o pagamento.
+7. O gateway de pagamento confirma a transação.
+8. O sistema atualiza o saldo do usuário.
+9. O sistema registra a operação no histórico de recargas.
+10. O sistema exibe a confirmação da recarga.
 
 **Fluxo alternativo:**  
-- Caso o pagamento não seja confirmado, nenhum crédito é adicionado.
-- Caso ocorra erro no processamento, o usuário é informado.
+- Caso o pagamento não seja confirmado, nenhum crédito é adicionado à conta.
+- Caso o QR Code Pix expire, o sistema informa o usuário e permite gerar uma nova cobrança.
+- Caso o valor informado seja inferior ao mínimo permitido, o sistema exibe uma mensagem de validação.
+- Caso ocorra erro no processamento do pagamento, o usuário é informado e pode tentar novamente.
 
 ---
 
+### UC04 - Consultar Histórico de Recargas
 
+**Ator:** Usuário institucional autenticado
 
+**Descrição:** Permite que o usuário visualize o histórico de recargas realizadas em sua conta, incluindo data, valor e método de pagamento utilizado.
 
+**Fluxo principal:**  
+1. O usuário acessa a área de histórico.
+2. O sistema busca as recargas vinculadas ao usuário autenticado.
+3. O sistema exibe a lista de recargas em ordem cronológica.
+4. O usuário visualiza os detalhes de cada operação.
+5. O usuário pode aplicar filtros por período ou método de pagamento, se disponível.
+
+**Fluxo alternativo:**  
+- Caso o usuário não possua recargas registradas, o sistema exibe uma mensagem informativa.
+- Caso não existam registros para o filtro selecionado, o sistema informa que nenhum resultado foi encontrado.
+- Caso ocorra falha na busca dos dados, o sistema exibe uma mensagem de erro.
+
+---
+
+### UC05 - Visualizar Cardápio
+
+**Ator:** Usuário institucional autenticado
+
+**Descrição:** Permite que o usuário consulte o cardápio semanal do Restaurante Universitário, com informações organizadas por dia e tipo de refeição.
+
+**Fluxo principal:**  
+1. O usuário acessa a área de cardápio.
+2. O sistema busca o cardápio publicado para a semana vigente.
+3. O sistema exibe as refeições organizadas por data e tipo.
+4. O usuário consulta as informações disponíveis antes de se deslocar ao RU.
+
+**Fluxo alternativo:**  
+- Caso o cardápio da semana ainda não tenha sido publicado, o sistema exibe uma mensagem informativa.
+- Caso não exista refeição cadastrada para determinado dia, o sistema informa a ausência de dados.
+- Caso ocorra falha de carregamento, o sistema orienta o usuário a tentar novamente.
+
+---
+
+### UC06 - Receber Notificações e Comunicados
+
+**Ator:** Usuário institucional autenticado
+
+**Descrição:** Permite que o usuário receba notificações sobre saldo baixo, confirmação de recarga, publicação de cardápio, alterações no funcionamento do RU e manutenções programadas.
+
+**Fluxo principal:**  
+1. O usuário acessa o sistema.
+2. O sistema identifica eventos relevantes para o usuário.
+3. O sistema envia a notificação pelo canal configurado.
+4. O usuário recebe a notificação.
+5. O usuário visualiza a informação enviada.
+
+**Fluxo alternativo:**  
+- Caso o usuário tenha desativado notificações opcionais, o sistema não envia alertas não obrigatórios.
+- Caso a notificação seja crítica, como manutenção ou indisponibilidade do sistema, ela poderá ser enviada independentemente das preferências do usuário.
+- Caso ocorra falha no envio, o sistema registra a tentativa para controle interno.
+
+---
+
+### UC07 - Configurar Preferências de Notificação
+
+**Ator:** Usuário institucional autenticado
+
+**Descrição:** Permite que o usuário defina quais tipos de notificações deseja receber, respeitando as comunicações obrigatórias do sistema.
+
+**Fluxo principal:**  
+1. O usuário acessa as configurações do sistema.
+2. O usuário entra na área de notificações.
+3. O sistema exibe os tipos de notificações disponíveis.
+4. O usuário ativa ou desativa as notificações desejadas.
+5. O sistema salva as preferências.
+6. O sistema passa a enviar notificações conforme as configurações definidas.
+
+**Fluxo alternativo:**  
+- Caso o usuário tente desativar uma notificação crítica, o sistema informa que esse tipo de aviso não pode ser desativado.
+- Caso ocorra erro ao salvar as preferências, o sistema exibe uma mensagem e mantém as configurações anteriores.
+
+---
+
+### UC08 - Realizar Check-in no RU
+
+**Ator:** Usuário institucional
+
+**Descrição:** Permite registrar a entrada do usuário no Restaurante Universitário e debitar automaticamente o valor correspondente à refeição.
+
+**Fluxo principal:**  
+1. O usuário se identifica no acesso ao RU.
+2. O sistema recebe a identificação do usuário.
+3. O sistema verifica se existe saldo suficiente.
+4. O sistema debita o valor correspondente à refeição.
+5. O sistema registra o check-in com data e hora.
+6. O acesso ao RU é liberado.
+
+**Fluxo alternativo:**  
+- Caso o saldo seja insuficiente, o sistema bloqueia o check-in e exibe uma mensagem informativa.
+- Caso a identificação do usuário não seja reconhecida, o acesso não é liberado.
+- Caso ocorra falha de comunicação, o operador do RU deverá seguir o procedimento definido pela instituição.
+
+---
+
+### UC09 - Enviar Feedback sobre Refeição
+
+**Ator:** Usuário institucional autenticado
+
+**Descrição:** Permite que o usuário avalie uma refeição consumida no RU, contribuindo para a melhoria do serviço prestado.
+
+**Fluxo principal:**  
+1. O usuário acessa a área de feedback.
+2. O sistema verifica se o usuário realizou check-in em uma refeição.
+3. O usuário seleciona a refeição que deseja avaliar.
+4. O usuário informa uma nota e, se desejar, um comentário.
+5. O sistema registra o feedback.
+6. O sistema confirma o envio da avaliação.
+
+**Fluxo alternativo:**  
+- Caso o usuário não tenha realizado check-in, o sistema não permite o envio do feedback.
+- Caso o usuário já tenha enviado feedback para a mesma refeição, o sistema bloqueia novo envio.
+- Caso algum campo obrigatório não seja preenchido, o sistema exibe uma mensagem de validação.
+
+---
+
+### UC10 - Gerenciar Cardápio
+
+**Ator:** Operador do RU ou administrador
+
+**Descrição:** Permite cadastrar, editar, remover ou atualizar o cardápio do Restaurante Universitário.
+
+**Fluxo principal:**  
+1. O operador acessa o painel administrativo.
+2. O operador acessa a área de cardápio.
+3. O operador seleciona a data e o tipo de refeição.
+4. O operador cadastra ou altera os itens do cardápio.
+5. O sistema valida os dados informados.
+6. O operador confirma a operação.
+7. O sistema salva as alterações.
+8. O sistema disponibiliza o cardápio atualizado aos usuários.
+
+**Fluxo alternativo:**  
+- Caso existam campos obrigatórios não preenchidos, o sistema exibe uma mensagem de validação.
+- Caso o operador tente cadastrar o cardápio fora do prazo mínimo definido, o sistema exibe um alerta.
+- Caso o cardápio já tenha sido publicado, alterações posteriores podem gerar notificação automática aos usuários.
+
+---
+
+### UC11 - Cadastrar Usuário pelo Administrador
+
+**Ator:** Administrador
+
+**Descrição:** Permite que o administrador cadastre usuários no sistema quando necessário, definindo seus dados básicos e perfil de acesso.
+
+**Fluxo principal:**  
+1. O administrador acessa o painel administrativo.
+2. O administrador entra na área de usuários.
+3. O administrador informa os dados do usuário.
+4. O administrador define o perfil de acesso.
+5. O sistema valida as informações.
+6. O sistema registra o usuário.
+7. O sistema exibe a confirmação do cadastro.
+
+**Fluxo alternativo:**  
+- Caso a matrícula ou identificação já esteja cadastrada, o sistema informa a duplicidade.
+- Caso o vínculo institucional não seja validado, o sistema impede o cadastro.
+- Caso existam dados obrigatórios ausentes, o sistema exibe uma mensagem de validação.
+
+---
+
+### UC12 - Gerenciar Créditos Manualmente
+
+**Ator:** Operador do RU ou administrador
+
+**Descrição:** Permite realizar ajustes manuais de crédito na conta de um usuário, mediante justificativa obrigatória.
+
+**Fluxo principal:**  
+1. O operador acessa o painel administrativo.
+2. O operador entra na área de gestão de créditos.
+3. O operador localiza o usuário pelo nome, matrícula ou identificação.
+4. O operador seleciona a operação desejada.
+5. O operador informa o valor do ajuste.
+6. O operador registra a justificativa obrigatória.
+7. O sistema valida a operação.
+8. O sistema atualiza o saldo do usuário.
+9. O sistema registra a alteração no histórico administrativo.
+
+**Fluxo alternativo:**  
+- Caso a operação resulte em saldo negativo, o sistema bloqueia a ação.
+- Caso a justificativa não seja preenchida, o sistema impede a conclusão da operação.
+- Caso o operador não possua permissão suficiente, o sistema nega o acesso à funcionalidade.
+
+---
+
+### UC13 - Gerenciar Usuário Externo
+
+**Ator:** Operador do RU ou administrador
+
+**Descrição:** Permite registrar usuários externos, como visitantes sem vínculo institucional, para utilização do RU mediante pagamento diferenciado.
+
+**Fluxo principal:**  
+1. O operador acessa a área de usuários externos.
+2. O operador informa os dados necessários do usuário externo.
+3. O sistema verifica se o usuário já possui cadastro.
+4. O operador informa o valor do crédito ou pagamento correspondente.
+5. O sistema registra a operação.
+6. O sistema gera o comprovante.
+7. O usuário externo fica apto a utilizar o serviço conforme as regras definidas pela instituição.
+
+**Fluxo alternativo:**  
+- Caso o usuário externo já esteja cadastrado, o sistema permite atualizar o registro existente.
+- Caso os dados obrigatórios não sejam preenchidos, o sistema exibe uma mensagem de validação.
+- Caso o pagamento não seja confirmado, o crédito não é registrado.
+- Caso a instituição não permita cadastro de usuários externos, essa funcionalidade poderá permanecer desativada.
+
+---
+
+### UC14 - Gerar Relatório
+
+**Ator:** Operador do RU ou administrador
+
+**Descrição:** Permite gerar relatórios de uso, recargas, check-ins, feedbacks e informações financeiras relacionadas ao Restaurante Universitário.
+
+**Fluxo principal:**  
+1. O operador acessa o painel administrativo.
+2. O operador acessa a área de relatórios.
+3. O operador seleciona o tipo de relatório.
+4. O operador define o período desejado.
+5. O sistema processa os dados disponíveis.
+6. O sistema exibe o relatório com gráficos, indicadores ou tabelas.
+7. O operador exporta o relatório, se necessário.
+
+**Fluxo alternativo:**  
+- Caso não existam dados para o período selecionado, o sistema exibe uma mensagem informativa.
+- Caso o período informado seja inválido, o sistema solicita correção.
+- Caso o operador não possua permissão para visualizar determinado relatório, o sistema bloqueia o acesso.
+
+---
+
+### UC15 - Exportar Relatório
+
+**Ator:** Operador do RU ou administrador
+
+**Descrição:** Permite exportar relatórios administrativos em formatos adequados para análise, prestação de contas ou arquivamento.
+
+**Fluxo principal:**  
+1. O operador gera um relatório no sistema.
+2. O operador seleciona a opção de exportação.
+3. O sistema exibe os formatos disponíveis.
+4. O operador seleciona o formato desejado, como PDF ou CSV.
+5. O sistema gera o arquivo.
+6. O operador realiza o download do relatório.
+
+**Fluxo alternativo:**  
+- Caso o relatório não possua dados, o sistema impede a exportação e exibe uma mensagem.
+- Caso ocorra falha na geração do arquivo, o sistema informa o erro.
+- Caso o operador não tenha permissão para exportar dados, a opção não é disponibilizada.
+
+---
+
+### UC16 - Consultar Feedbacks pelo Administrador
+
+**Ator:** Operador do RU ou administrador
+
+**Descrição:** Permite que os responsáveis pelo RU consultem as avaliações enviadas pelos usuários sobre as refeições.
+
+**Fluxo principal:**  
+1. O operador acessa o painel administrativo.
+2. O operador acessa a área de feedbacks.
+3. O sistema exibe as avaliações registradas.
+4. O operador aplica filtros por período, refeição ou nota, se necessário.
+5. O operador analisa os dados apresentados.
+6. O sistema permite utilizar essas informações em relatórios administrativos.
+
+**Fluxo alternativo:**  
+- Caso não existam feedbacks registrados, o sistema exibe uma mensagem informativa.
+- Caso existam comentários ofensivos ou inadequados, o administrador poderá tratá-los conforme regras internas da instituição.
+- Caso os dados sejam exportados para fins estatísticos, o sistema deve preservar a privacidade dos usuários.
+
+---
+
+### UC17 - Registrar Log de Operações Administrativas
+
+**Ator:** Sistema
+
+**Descrição:** Permite que o sistema registre automaticamente operações administrativas relevantes, garantindo rastreabilidade e auditoria.
+
+**Fluxo principal:**  
+1. Um operador ou administrador realiza uma operação sensível no sistema.
+2. O sistema identifica o usuário responsável pela ação.
+3. O sistema registra a data, hora, tipo de operação e resultado.
+4. O sistema armazena o registro no histórico administrativo.
+5. O registro fica disponível para consulta por usuários autorizados.
+
+**Fluxo alternativo:**  
+- Caso a operação falhe, o sistema registra a tentativa e o motivo da falha, quando disponível.
+- Caso ocorra erro no registro do log, o sistema deve impedir operações críticas que dependam de rastreabilidade.
+- Caso o usuário não tenha permissão para consultar logs, o sistema bloqueia o acesso.
+
+---
+
+### UC18 - Integrar com APIs Externas
+
+**Ator:** Sistema
+
+**Descrição:** Permite que o sistema se comunique com serviços externos, como SUAP e gateway de pagamento, para autenticação, validação de dados e processamento de transações.
+
+**Fluxo principal:**  
+1. O sistema identifica a necessidade de comunicação com uma API externa.
+2. O sistema envia a requisição com os dados necessários.
+3. A API externa processa a solicitação.
+4. A API externa retorna uma resposta ao sistema.
+5. O sistema interpreta a resposta recebida.
+6. O sistema atualiza as informações internas conforme o resultado.
+
+**Fluxo alternativo:**  
+- Caso a API externa esteja indisponível, o sistema exibe uma mensagem adequada ao usuário ou operador.
+- Caso a resposta da API seja inválida, o sistema registra o erro.
+- Caso ocorra falha em uma transação financeira, o sistema não deve alterar o saldo do usuário até a confirmação da operação.
+
+---
 
 
 ##  10. Plano de Testes
