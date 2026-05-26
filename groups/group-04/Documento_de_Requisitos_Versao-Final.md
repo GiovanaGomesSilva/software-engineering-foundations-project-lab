@@ -611,22 +611,61 @@ Explique como a arquitetura atende aos requisitos não funcionais:
 
 ### UC01 - Autenticar no Sistema
 
-**Ator:** Usuário institucional (estudante ou servidor)  
+**Ator:** Usuário institucional
 
-**Descrição:** O usuário acessa o sistema e realiza login com suas credenciais institucionais do SUAP.
+**Descrição:** Permite que estudantes e servidores acessem o sistema utilizando credenciais institucionais.
 
 **Fluxo principal:**  
-1. O usuário acessa a URL do sistema pelo navegador ou abre a PWA instalada.
-2. O sistema exibe a tela de login com o botão “Entrar com SUAP”.
-3. O usuário clica no botão e é redirecionado para a página de autenticação do SUAP.
-4. O usuário insere suas credenciais no SUAP.
-5. O SUAP retorna o token de autorização para o sistema.
-6. O sistema gera um JWT e redireciona o usuário para a tela inicial.
+1. O usuário acessa o sistema.
+2. O sistema redireciona o usuário para autenticação via SUAP.
+3. O usuário informa suas credenciais institucionais.
+4. O SUAP valida os dados e retorna a autorização.
+5. O sistema libera o acesso à tela inicial.
 
 **Fluxo alternativo:**  
-Se as credenciais forem inválidas, o SUAP exibe uma mensagem de erro e o usuário pode tentar novamente.
+- Caso as credenciais sejam inválidas, o acesso é negado e uma mensagem de erro é exibida.
+- Caso ocorra falha de conexão, o usuário é informado e pode tentar novamente.
 
 ---
+### UC02 - Consultar Saldo
+
+**Ator:** Usuário institucional autenticado
+
+**Descrição:** Permite que o usuário visualize o seu saldo disponível.
+
+**Fluxo principal:**  
+1. O usuário acessa a opção de saldo.
+2. O sistema consulta as informações vinculadas ao usuário.
+3. O sistema exibe o saldo disponível.
+
+**Fluxo alternativo:**  
+- Caso não seja possível consultar o saldo, o sistema exibe uma mensagem informativa.
+
+---
+### UC03 - Recarregar Saldo
+
+**Ator:** Usuário institucional autenticado
+
+**Descrição:** Permite que o usuário adicione créditos à sua conta por meio de pagamento digital.
+
+**Fluxo principal:**  
+1. O usuário acessa a área de recarga.
+2. O usuário informa o valor desejado.
+3. O sistema gera a cobrança.
+4. O usuário realiza o pagamento.
+5. O sistema confirma o pagamento.
+6. O sistema atualiza o saldo do usuário.
+
+**Fluxo alternativo:**  
+- Caso o pagamento não seja confirmado, nenhum crédito é adicionado.
+- Caso ocorra erro no processamento, o usuário é informado.
+
+---
+
+
+
+
+
 
 ##  10. Plano de Testes
 
