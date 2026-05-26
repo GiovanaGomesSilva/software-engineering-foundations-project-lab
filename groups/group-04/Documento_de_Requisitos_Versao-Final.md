@@ -583,27 +583,78 @@ Todas as movimentações financeiras realizadas no sistema deverão ser registra
 
 ---
 
-##  8. Arquitetura do Sistema
+# 8. Arquitetura do Sistema
 
-### 8.1 Visão Geral
-Descreva a arquitetura (ex: monolito, microserviços).
+## 8.1 Visão Geral da Arquitetura
 
-### 8.2 Componentes
-- Frontend  
-- Backend  
-- Banco de dados  
-- APIs externas  
+O sistema adota arquitetura cliente-servidor desacoplada, com comunicação entre frontend e backend via REST API em formato JSON. O frontend é desenvolvido como PWA (Progressive Web App), acessível via navegador e instalável em dispositivos móveis e desktops. O backend expõe uma API REST consumida tanto pelo frontend do usuário quanto pelo painel administrativo.
 
-### 8.3 Tecnologias
-- Linguagem  
-- Framework  
-- Banco de dados  
+A arquitetura é modular, permitindo que o módulo de interface opere de forma independente do módulo gerenciador, possibilitando integração com sistemas externos já existentes ou implantação completa em novas instituições.
 
-### 8.4 Decisões Arquiteturais
-Explique como a arquitetura atende aos requisitos não funcionais:
-- Desempenho  
-- Segurança  
-- Escalabilidade  
+Dentro dessa estrutura, o frontend será responsável pela interação direta com os usuários, oferecendo acesso às funcionalidades do sistema através de uma interface responsiva e compatível com dispositivos móveis e computadores. Já o backend concentrará as regras de negócio, processamento de dados, autenticação e comunicação com serviços externos.
+
+A comunicação entre os módulos ocorrerá através de requisições HTTP utilizando formato JSON, padrão amplamente utilizado em aplicações web modernas devido à sua simplicidade, leveza e facilidade de integração.
+
+A comunicação entre os componentes ocorrerá de maneira contínua através da API do sistema, permitindo troca de informações entre interface, backend e banco de dados de forma organizada e padronizada.
+
+Essa separação entre as camadas da aplicação facilita maior organização do projeto, simplifica processos de manutenção, permite reutilização da API em diferentes interfaces e contribui para futura expansão do sistema para outras instituições ou novos serviços integrados.
+
+---
+
+## 8.2 Componentes do Sistema
+
+| Componente | Tecnologias Relacionadas | Finalidade no Sistema |
+|---|---|---|
+| Interface do Usuário | PWA, React e Vite | Responsável pela interface acessada por estudantes, servidores e administradores. Permite que o sistema seja utilizado pelo navegador e instalado em dispositivos móveis ou desktops, oferecendo uma experiência semelhante à de um aplicativo. |
+| Camada de Backend e API | Node.js e Express | Responsável pelo processamento das regras de negócio, organização das rotas da API REST e comunicação entre interface, banco de dados e serviços externos. |
+| Armazenamento de Dados | PostgreSQL | Responsável pelo armazenamento persistente das informações do sistema, como usuários, saldos, recargas, cardápios, feedbacks, check-ins e registros administrativos. |
+| Cache e Desempenho | Redis | Utilizado para armazenar temporariamente dados acessados com frequência, reduzindo consultas repetitivas ao banco de dados e contribuindo para melhor tempo de resposta. |
+| Autenticação e Sessão | OAuth2 e JWT | Responsável pela validação do usuário por meio de integração institucional, como o SUAP, e pelo controle seguro da sessão durante o uso da aplicação. |
+| Integrações Externas | Gateway Pix e serviços de notificação | Responsáveis por funcionalidades que dependem de serviços externos, como processamento de recargas digitais e envio de alertas aos usuários. |
+
+---
+
+## 8.3 Tecnologias Utilizadas
+
+A tabela abaixo apresenta as principais tecnologias previstas para o desenvolvimento do sistema.
+
+| Camada | Tecnologia |
+|---|---|
+| Frontend | React + Vite |
+| Backend | Node.js + Express |
+| Banco de Dados | PostgreSQL |
+| Cache | Redis |
+| Autenticação | OAuth2 + JWT |
+| Containerização | Docker |
+| Proxy | Nginx |
+| CI/CD | GitHub Actions |
+| Versionamento | Git + GitHub |
+
+---
+
+## 8.4 Decisões Arquiteturais
+
+As decisões arquiteturais foram definidas a partir dos requisitos não funcionais do sistema, principalmente desempenho, segurança e escalabilidade. Essas decisões orientam a escolha das tecnologias e a forma como os componentes da aplicação se relacionam.
+
+### Desempenho
+
+No quesito desempenho, será utilizado o Redis como camada de cache, possibilitando o armazenamento temporário de dados acessados frequentemente, como cardápio, configurações e informações de sessão. Dessa forma, o sistema conseguirá reduzir consultas repetidas ao banco de dados, o que, consequentemente, melhorará o tempo de resposta da aplicação.
+
+A comunicação entre frontend e backend será feita por meio de API REST, com respostas em formato JSON. Esse formato contribui para uma troca de dados mais leve, organizada e adequada para aplicações web.
+
+### Segurança
+
+A autenticação dos usuários será realizada pelo SUAP utilizando OAuth2. Dessa forma, o sistema não precisará armazenar senhas institucionais, reduzindo riscos relacionados ao vazamento de credenciais.
+
+Após a autenticação, será utilizado JWT para controle de sessão entre frontend e backend. As comunicações também deverão utilizar HTTPS, garantindo maior proteção dos dados enviados e recebidos pelo sistema.
+
+Além disso, o sistema deverá possuir controle de permissões por perfil de usuário. Assim, usuários comuns terão acesso às funcionalidades de uso do RU, enquanto administradores poderão acessar recursos de gerenciamento, relatórios e configurações.
+
+### Escalabilidade
+
+A arquitetura desacoplada permite que frontend e backend sejam mantidos e evoluídos de forma independente. Isso facilita melhorias futuras, correções e adaptações sem exigir mudanças em todo o sistema.
+
+O uso de Docker contribui para padronizar o ambiente de execução e facilitar a implantação em diferentes cenários. A modularidade também permite que o PODE PAPAR seja adotado de forma parcial, como uma interface integrada a sistemas já existentes, ou de forma completa, incluindo frontend, backend, banco de dados e integrações externas.
 
 ---
 
