@@ -1784,11 +1784,69 @@ Cada critério é composto por:
 
 ---
 
-##  12. Restrições
+Com base no documento, vou redigir a seção 12 — Restrições — de forma completa e coerente com tudo que foi definido nas demais seções.
 
-- Tecnológicas  
-- Legais  
-- De prazo  
+---
+
+## 12. Restrições
+
+### 12.1 Restrições Tecnológicas
+
+**Dependência do SUAP para autenticação**
+O sistema é integralmente dependente da API do SUAP para autenticação e validação de vínculo institucional. Não são permitidas formas alternativas de login, como cadastro por e-mail ou outros provedores externos (RF01, RNF18). Qualquer indisponibilidade do SUAP impede o acesso ao sistema por parte dos usuários institucionais, sem que o PODE PAPAR possa contornar essa limitação de forma autônoma.
+
+**Dependência de gateway de pagamento externo**
+O processamento de recargas via Pix é delegado integralmente a um gateway de pagamento externo. O sistema não processa transações financeiras de forma direta, sendo restrito a registrar o resultado das operações após confirmação do gateway (RF03, RF09). Dados sensíveis de cartão de crédito não podem ser armazenados internamente em nenhuma hipótese, conforme exigência PCI-DSS (RNF19).
+
+**Controle de acesso físico fora do escopo**
+O controle físico de acesso ao RU — incluindo catracas, reconhecimento facial e leitores biométricos — opera de forma independente e não é gerenciado pelo PODE PAPAR. O sistema registra check-ins mediante integração com o sistema existente, mas não substitui nem interfere diretamente nos dispositivos físicos de controle de entrada (conforme delimitado na seção 1.2 — Escopo).
+
+**Compatibilidade de dispositivos e navegadores**
+O sistema é desenvolvido como PWA (Progressive Web App), sendo acessível via navegadores modernos compatíveis com os padrões web atuais. Dispositivos ou navegadores desatualizados, que não suportem os recursos técnicos exigidos pela aplicação, podem apresentar comportamento degradado ou incompatibilidade. O suporte se restringe aos ambientes Windows, Linux e Android com navegadores atualizados (seção 6.1).
+
+**Infraestrutura de hospedagem**
+O sistema requer hospedagem em servidor Linux com suporte a APIs REST, banco de dados relacional (PostgreSQL), Redis para cache, comunicação via HTTPS/TLS, rotinas automáticas de backup e monitoramento de disponibilidade. A ausência de qualquer um desses componentes na infraestrutura da instituição implica necessidade de adequação prévia à implantação.
+
+**Tecnologias definidas**
+As tecnologias do projeto foram fixadas na arquitetura aprovada: React + Vite no frontend, Node.js + Express no backend, PostgreSQL como banco de dados, Redis como cache, OAuth2 + JWT para autenticação, Docker para containerização e Nginx como proxy reverso (seção 8.3). A substituição de qualquer componente central exigiria revisão arquitetural e está fora do escopo da versão atual.
+
+---
+
+### 12.2 Restrições Legais
+
+**Lei Geral de Proteção de Dados — LGPD (Lei nº 13.709/2018)**
+O sistema deve estar em plena conformidade com a LGPD antes de entrar em produção, incluindo a elaboração do Relatório de Impacto à Proteção de Dados (RIPD) conforme Art. 38. Os dados pessoais dos usuários — como vínculo institucional, histórico financeiro e padrões de consumo — somente podem ser tratados para as finalidades declaradas no sistema, sendo vedado qualquer uso secundário incompatível (seção 7.1).
+
+**Regulamentação do Pix — Banco Central do Brasil**
+As operações de recarga via Pix devem obedecer ao Regulamento do Pix emitido pelo Banco Central, respeitando os requisitos de segurança, autenticação e rastreabilidade das transações instantâneas. O sistema não pode implementar fluxos de pagamento Pix que contrariem as normas vigentes do Bacen.
+
+**PCI-DSS para transações com cartão de crédito**
+O processamento de pagamentos via cartão de crédito está condicionado à conformidade com o padrão PCI-DSS. Dados de cartão jamais devem ser armazenados diretamente no sistema, sendo delegados integralmente ao gateway de pagamento contratado (RNF19). O não atendimento a esse padrão inviabiliza juridicamente essa modalidade de pagamento.
+
+**Lei de Acesso à Informação — LAI (Lei nº 12.527/2011)**
+Informações de caráter público relativas ao funcionamento do RU — como cardápios, comunicados e indicadores gerais de uso — devem estar acessíveis conforme os princípios de transparência da LAI, sem que isso implique exposição de dados pessoais dos usuários (seção 7.1).
+
+**Marco Civil da Internet (Lei nº 12.965/2014)**
+O sistema deve observar os princípios do Marco Civil no que tange à proteção de dados, responsabilidade do provedor e guarda de registros de acesso, em conformidade com os Arts. 10 a 17 da lei (seção 7.3).
+
+**Retenção mínima de dados financeiros**
+Os registros de transações financeiras devem ser armazenados por prazo mínimo de 5 (cinco) anos, conforme exigências legais aplicáveis à administração pública federal, sem prejuízo de prazos mais longos definidos pela política de arquivamento da UFR (seção 7.5).
+
+---
+
+### 12.3 Restrições de Prazo
+
+**Antecedência mínima para publicação do cardápio**
+O cardápio deve ser cadastrado com antecedência mínima de 24 horas antes da refeição correspondente, conforme regra de negócio do RF12. O sistema impedirá cadastros fora desse prazo, o que implica necessidade de organização operacional prévia por parte dos responsáveis do RU.
+
+**Prazo para elaboração do RIPD**
+O Relatório de Impacto à Proteção de Dados deve ser elaborado e aprovado antes da entrada do sistema em ambiente de produção, representando uma restrição de cronograma que antecede o lançamento oficial da plataforma (seção 7.1).
+
+**Manutenção obrigatória de canais presenciais**
+O sistema jamais poderá operar como única forma de acesso administrativo aos serviços do RU. A instituição deverá manter canais presenciais de atendimento e suporte aos usuários paralelamente à plataforma digital, para garantir que nenhum membro da comunidade acadêmica seja excluído do serviço de alimentação por limitações de acesso digital (seção 7.2).
+
+**Histórico de recargas disponível por no mínimo 12 meses**
+O sistema deve garantir a manutenção e disponibilidade do histórico de recargas dos usuários por período mínimo de 12 meses (RF05), o que impõe restrições à política de arquivamento e descarte de dados da plataforma.
 
 ---
 
