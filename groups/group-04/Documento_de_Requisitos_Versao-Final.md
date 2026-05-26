@@ -658,12 +658,6 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 ##  9. Casos de Uso
 
-## 9. Casos de Uso
-
-Os casos de uso descrevem as principais interações entre os usuários e o sistema PODE PAPAR. Eles foram definidos com base nos requisitos funcionais do projeto, considerando os usuários institucionais, operadores do Restaurante Universitário e administradores do sistema.
-
----
-
 ### UC01 - Autenticar no Sistema
 
 **Ator:** Usuário institucional
