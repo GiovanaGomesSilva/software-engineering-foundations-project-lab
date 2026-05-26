@@ -1004,27 +1004,7 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 ---
 
-### UC17 - Registrar Log de Operações Administrativas
-
-**Ator:** Sistema
-
-**Descrição:** Permite que o sistema registre automaticamente operações administrativas relevantes, garantindo rastreabilidade e auditoria.
-
-**Fluxo principal:**  
-1. Um operador ou administrador realiza uma operação sensível no sistema.
-2. O sistema identifica o usuário responsável pela ação.
-3. O sistema registra a data, hora, tipo de operação e resultado.
-4. O sistema armazena o registro no histórico administrativo.
-5. O registro fica disponível para consulta por usuários autorizados.
-
-**Fluxo alternativo:**  
-- Caso a operação falhe, o sistema registra a tentativa e o motivo da falha, quando disponível.
-- Caso ocorra erro no registro do log, o sistema deve impedir operações críticas que dependam de rastreabilidade.
-- Caso o usuário não tenha permissão para consultar logs, o sistema bloqueia o acesso.
-
----
-
-### UC18 - Integrar com APIs Externas
+### UC17 - Integrar com APIs Externas
 
 **Ator:** Sistema
 
