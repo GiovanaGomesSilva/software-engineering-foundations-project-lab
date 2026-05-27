@@ -130,7 +130,6 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 | Gestão do RU da UFR | Responsável pela operação do restaurante; utilizará o painel administrativo |
 | Equipe Desenvolvedora | Responsável pelo desenvolvimento, manutenção técnica e evolução do sistema |
 | Instituições Parceiras | Outras universidades que poderão adotar a plataforma |
-| Banco Central do Brasil | Regulador das transações via Pix |
 | SUAP | Provedor da API de autenticação institucional |
 ---
 
