@@ -150,6 +150,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF02 - Consulta de Saldo
 *Prioridade:* Alta
+
 *Entradas:*
 - Sessão autenticada do usuário
 *Saídas:*
@@ -182,6 +183,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF04 - Exibição do Cardápio Semanal
 *Prioridade:* Alta
+
 *Entradas:*
 - Solicitação de visualização do cardápio pelo usuário autenticado
 *Saídas:*
@@ -195,6 +197,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF05 - Histórico de Recargas
 *Prioridade:* Média
+
 *Entradas:*
 - Sessão autenticada do usuário
 - Filtros do período da movimentação
@@ -210,6 +213,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF06 - Envio de Notificações
 *Prioridade:* Média
+
 *Entradas:*
 - Eventos disparadores: saldo baixo, recarga confirmada, publicação de novo cardápio, manutenções programadas
 *Saídas:*
@@ -223,6 +227,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF07 - Registro de Check-in
 *Prioridade:* Média
+
 *Entradas:*
 - Identificação do usuário no acesso ao RU (via biometria)
 *Saídas:*
@@ -237,6 +242,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF08 - Feedback sobre Refeições
 *Prioridade:* Baixa
+
 *Entradas:*
 - Avaliação do usuário (nota e/ou comentário) referente à refeição do dia
 *Saídas:*
@@ -251,6 +257,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF09 - Integração com APIs Externas
 *Prioridade:* Alta
+
 *Entradas:*
 - Dados de autenticação e transação encaminhados às APIs externas (SUAP, gateways de pagamento)
 *Saídas:*
@@ -264,6 +271,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF10 - Cadastro de Usuários pelo Administrador
 *Prioridade:* Alta
+
 *Entradas:*
 - Dados do usuário a ser cadastrado (nome, matrícula, vínculo institucional, perfil de acesso)
 *Saídas:*
@@ -278,6 +286,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF11 - Gerenciamento de Créditos pelo Administrador
 *Prioridade:* Alta
+
 *Entradas:*
 - Identificação do usuário e operação desejada (adição, remoção ou ajuste manual de créditos)
 *Saídas:*
@@ -292,6 +301,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF12 - Gerenciamento do Cardápio pelo Administrador
 *Prioridade:* Alta
+
 *Entradas:*
 - Dados do cardápio (data, horário de duração, tipo de refeição, itens do menu)
 *Saídas:*
@@ -306,6 +316,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF13 - Geração de Relatórios pelo Administrador
 *Prioridade:* Média
+
 *Entradas:*
 - Filtros selecionados pelo administrador (período, tipo de relatório, usuário ou grupo)
 *Saídas:*
