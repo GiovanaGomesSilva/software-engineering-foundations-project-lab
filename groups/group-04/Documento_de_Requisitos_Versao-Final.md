@@ -135,6 +135,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF01 - Autenticação Institucional
 *Prioridade:* Alta
+
 *Entradas:*
 - Credenciais institucionais do usuário (login e senha do SUAP)
 *Saídas:*
@@ -162,6 +163,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### RF03 - Recarga de Saldo
 *Prioridade:* Alta
+
 *Entradas:*
 - Valor desejado para recarga
 - Método de pagamento selecionado (Pix ou cartão de crédito cadastrado)
