@@ -5,30 +5,30 @@
 ##  1. Introdução
 
 ### 1.1 Objetivo
-Este documento tem como objetivo descrever de forma estruturada os requisitos do sistema de plataforma digital para o Restaurante Universitário (RU) da Universidade Federal de Rondonópolis (UFR), o PODE PAPAR. Ele serve como base para o desenvolvimento, testes e validação do software, garantindo alinhamento entre a equipe técnica, os usuários finais e os gestores do RU.
-O sistema visa digitalizar e modernizar o processo de gestão e uso do RU, eliminando os gargalos logísticos do modelo presencial atual por meio de uma plataforma modular, desacoplada e escalável.
+Este documento tem como objetivo descrever, de forma estruturada, os requisitos do sistema de plataforma digital para o Restaurante Universitário (RU) da Universidade Federal de Rondonópolis (UFR), o JÁ PODE PAPAR. Ele serve como base para o desenvolvimento, testes e validação do software, garantindo alinhamento entre a equipe técnica, os usuários finais e os gestores do RU.
+O sistema visa digitalizar e modernizar o processo de gestão e uso do RU, eliminando gargalos logísticos do modelo presencial atual por meio de uma plataforma modular, desacoplada e escalável, isto é projetada para ser organizada em módulos, ter baixa dependência entre componentes e ser capaz de crescer conforme a demanda da instituição aumenta.
 
 
 ### 1.2 Escopo
 
 O sistema contempla:
 
-- Autenticação de usuários institucionais via SUAP  
-- Consulta de saldo e histórico de recargas em tempo real  
-- Recarga de créditos via Pix  
-- Visualização do cardápio semanal  
-- Registro e consulta de check-ins  
-- Envio de notificações e comunicados  
-- Feedback sobre refeições  
-- Painel administrativo para gestão operacional do RU  
-- Geração de relatórios visuais com gráficos e indicadores  
-- Integração com APIs externas  
+- Autenticação de usuários institucionais via SUAP;
+- Consulta de saldo e histórico de recargas em tempo real;
+- Recarga de créditos via Pix;
+- Visualização do cardápio semanal;
+- Registro e consulta de check-ins;
+- Envio de notificações e comunicados;
+- Feedback sobre refeições;
+- Painel administrativo para gestão operacional do RU;
+- Geração de relatórios visuais com gráficos e indicadores;
+- Integração com APIs externas;
 
 #### Fora do escopo:
 
-- Controle físico de acesso (catracas e reconhecimento facial) — responsabilidade do sistema existente do RU  
-- Manutenção técnica da infraestrutura — responsabilidade exclusiva da equipe desenvolvedora  
-- Integração com sistemas de folha de pagamento ou ERP institucional  
+- Controle físico de acesso (catracas e reconhecimento facial) — responsabilidade do sistema existente do RU;
+- Manutenção técnica da infraestrutura — responsabilidade exclusiva da equipe desenvolvedora;
+- Integração com sistemas institucionais responsáveis pela gestão financeira, administrativa e de recursos humanos;
 
 
 ### 1.3 Definições, Acrônimos e Abreviações
@@ -52,9 +52,9 @@ O sistema contempla:
 A Universidade Federal de Rondonópolis (UFR) disponibiliza à comunidade acadêmica o Restaurante Universitário (RU), responsável por atender estudantes e servidores em suas refeições diárias. Trata-se de um serviço essencial para a permanência estudantil, oferecendo refeições a preços acessíveis por meio de um sistema de créditos pré-pagos realizado de forma presencial.
 
 Entretanto, o modelo atual apresenta limitações significativas, como:
-- Cadastro realizado exclusivamente de forma presencial
-- Dificuldade de acesso ao cardápio atualizado
-- Ausência de uma interface para consulta de saldo e recarga remota
+- Cadastro realizado exclusivamente de forma presencial;
+- Dificuldade de acesso ao cardápio atualizado;
+- Ausência de uma interface para consulta de saldo e recarga remota;
 
 Esses fatores geram filas, lentidão no atendimento e perda de tempo produtivo, evidenciando a necessidade de uma solução digital que otimize esse processo.
 
@@ -62,10 +62,10 @@ Esses fatores geram filas, lentidão no atendimento e perda de tempo produtivo, 
 
 ### 2.2 Solução
 Propõe-se o desenvolvimento de um sistema digital integrado ao SUAP, que permitirá:
-- Cadastro online de usuários  
-- Consulta de saldo em tempo real  
-- Recarga de créditos via Pix ou cartão de crédito  
-- Acesso ao cardápio semanal atualizado  
+- Cadastro online de usuários;  
+- Consulta de saldo em tempo real;  
+- Recarga de créditos via Pix ou cartão de crédito; 
+- Acesso ao cardápio semanal atualizado;  
 
 O sistema busca melhorar a experiência dos usuários ao eliminar a necessidade de deslocamento para tarefas administrativas, reduzindo filas e proporcionando maior controle financeiro sobre o uso do RU.
 
@@ -82,32 +82,32 @@ A proposta de valor está centrada na otimização do tempo e na digitalização
 O sistema elimina a necessidade de processos presenciais para atividades administrativas, tornando o acesso ao RU mais ágil e eficiente.
 
 O projeto se fundamenta em três pilares:
-- *Permanência Estudantil:* Redução de filas e melhor aproveitamento do tempo acadêmico  
-- *Eficiência Operacional:* Diminuição da carga de trabalho manual no atendimento físico  
-- *Modernização Institucional:* Uso de tecnologia para aprimorar serviços e processos internos
+- *Permanência Estudantil:* Redução de filas e melhor aproveitamento do tempo acadêmico;  
+- *Eficiência Operacional:* Diminuição da carga de trabalho manual no atendimento físico;  
+- *Modernização Institucional:* Uso de tecnologia para aprimorar serviços e processos internos;
 
 ---
 
 ### 2.5 Diferencial
-- *Arquitetura Desacoplada (API-First):* Permite integração e evolução do sistema sem necessidade de reestruturação completa
-- *Foco na Experiência do Usuário (UX):* Interface simples, intuitiva e adaptada às necessidades da comunidade acadêmica
-- *Centralização de Informações:* Reúne saldo, cardápio e comunicados em um único ambiente digital
+- *Arquitetura Desacoplada (API-First):* Permite integração e evolução do sistema sem necessidade de reestruturação completa;
+- *Foco na Experiência do Usuário (UX):* Interface simples, intuitiva e adaptada às necessidades da comunidade acadêmica;
+- *Centralização de Informações:* Reúne saldo, cardápio e comunicados em um único ambiente digital;
 
 ---
 
 ### 2.6 Funcionalidades principais (alto nível)
-- *Gestão de Carteira Digital:* Consulta de saldo em tempo real  
-- *Recarga Remota:* Compra de créditos via Pix ou cartão de crédito  
-- *Consulta de Cardápio e Avisos:* Visualização de refeições e recebimento de notificações  
-- *Autenticação e Cadastro Digital:* Login integrado e pré-cadastro online  
-- *API de Gerenciamento:* Painel administrativo com relatórios e controle operacional
+- *Gestão de Carteira Digital:* Consulta de saldo em tempo real;  
+- *Recarga Remota:* Compra de créditos via Pix ou cartão de crédito;  
+- *Consulta de Cardápio e Avisos:* Visualização de refeições e recebimento de notificações;  
+- *Autenticação e Cadastro Digital:* Login integrado e pré-cadastro online;
+- *API de Gerenciamento:* Painel administrativo com relatórios e controle operacional;
 
 ---
 
 ##  3. Visão Geral do Sistema
 
 ### 3.1 Descrição Geral
-O PODE PAPAR é uma plataforma digital modular e desacoplada desenvolvida para modernizar os serviços do Restaurante Universitário da UFR. O sistema é estruturado em dois módulos independentes que se comunicam via API REST:
+O JÁ PODE PAPAR é uma plataforma digital modular e desacoplada desenvolvida para modernizar os serviços do Restaurante Universitário da UFR. O sistema é estruturado em dois módulos independentes que se comunicam via API REST:
 
 #### Módulo de Interface (Frontend PWA)
 
@@ -119,7 +119,7 @@ O Módulo Gerenciador (Backend + Painel Administrativo) é a camada de gestão o
 
 --
 
-Essa separação garante flexibilidade de implantação: no caso da UFR, o frontend pode ser integrado via API ao sistema já existente do RU; em outras instituições sem sistema próprio, o pacote completo pode ser implantado.
+Essa separação garante flexibilidade de implantação. No caso da UFR, o frontend pode ser integrado via API ao sistema já existente do RU; em outras instituições sem sistema próprio, o pacote completo pode ser implantado.
 
 ### 3.2 Stakeholders
 ### Stakeholders
@@ -128,9 +128,7 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 |------|----------|
 | Estudantes e Servidores da UFR | Usuários finais do sistema, beneficiados pela digitalização do processo |
 | Gestão do RU da UFR | Responsável pela operação do restaurante; utilizará o painel administrativo |
-| Equipe Desenvolvedora | Responsável pelo desenvolvimento, manutenção técnica e evolução do sistema |
 | Instituições Parceiras | Outras universidades que poderão adotar a plataforma |
-| SUAP | Provedor da API de autenticação institucional |
 ---
 
 ##  4. Requisitos Funcionais
@@ -158,7 +156,7 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 *Regras de negócio:*
 - O saldo exibido deve refletir o estado mais recente da conta, considerando recargas e consumos já processados.
 - A consulta de saldo deve estar disponível na tela inicial após o login.
-- Não deve ser possível consultar o saldo de outro usuário.
+- Não deve ser possível consultar o saldo de outro usuário pelo acesso de estudante.
 
 ---
 
@@ -170,6 +168,7 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 *Saídas:*
 - Confirmação de recarga bem-sucedida com atualização imediata do saldo
 - Comprovante ou notificação da transação realizada
+- Registro da recarga no extrato
 - Mensagem de erro em caso de falha no pagamento
 *Regras de negócio:*
 - O sistema deve suportar pagamento via Pix e cartão de crédito previamente cadastrado pelo usuário.
@@ -184,11 +183,11 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 *Entradas:*
 - Solicitação de visualização do cardápio pelo usuário autenticado
 *Saídas:*
-- Exibição do cardápio da semana vigente, organizado por dia e tipo de refeição
+- Exibição do cardápio da semana vigente, organizado por dia e refeição
 *Regras de negócio:*
 - O cardápio deve ser atualizado semanalmente pelo administrador.
 - Caso o cardápio da semana ainda não tenha sido publicado, o sistema deve exibir uma mensagem informativa ao usuário.
-- O cardápio deve indicar claramente a data de vigência de cada refeição listada.
+- O cardápio deve indicar claramente a data e horário de vigência de cada refeição listada.
 
 ---
 
@@ -196,13 +195,14 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 *Prioridade:* Média
 *Entradas:*
 - Sessão autenticada do usuário
-- Filtros opcionais (período, método de pagamento)
+- Filtros do período da movimentação
 *Saídas:*
 - Lista paginada das recargas realizadas, contendo data, valor e método de pagamento
 *Regras de negócio:*
 - O histórico deve exibir apenas as recargas do próprio usuário autenticado.
 - Os registros devem ser apresentados em ordem cronológica decrescente (mais recente primeiro).
 - O sistema deve manter o histórico por, no mínimo, 12 meses.
+- O sistema deve exibir o saldo presente ao final de cada dia de movimentação.
 
 ---
 
@@ -211,7 +211,7 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 *Entradas:*
 - Eventos disparadores: saldo baixo, recarga confirmada, publicação de novo cardápio, manutenções programadas
 *Saídas:*
-- Notificação enviada ao usuário pelo canal configurado (push, e-mail institucional ou in-app)
+- Notificação enviada ao usuário pelo canal configurado (push ou in-app)
 *Regras de negócio:*
 - O usuário deve poder configurar quais tipos de notificações deseja receber.
 - Notificações de saldo baixo devem ser disparadas quando o saldo atingir um limite mínimo configurável.
@@ -222,14 +222,14 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 ### RF07 - Registro de Check-in
 *Prioridade:* Média
 *Entradas:*
-- Identificação do usuário no acesso ao RU (via QR Code, cartão ou biometria)
+- Identificação do usuário no acesso ao RU (via biometria)
 *Saídas:*
 - Registro da entrada do usuário com data e hora
 - Desconto automático do crédito correspondente à refeição no saldo do usuário
 *Regras de negócio:*
 - Cada check-in deve debitar automaticamente o valor da refeição do saldo do usuário.
 - Não deve ser permitido o check-in caso o saldo seja insuficiente.
-- O registro deve ser armazenado para consulta no histórico do usuário e nos relatórios administrativos.
+- O registro deve ser armazenado para consulta no extrato do usuário e nos relatórios administrativos.
 
 ---
 
@@ -255,7 +255,7 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 - Respostas das APIs processadas e refletidas no sistema (autenticação validada, pagamento confirmado, etc.)
 *Regras de negócio:*
 - A integração com o SUAP deve ser utilizada exclusivamente para autenticação e validação de vínculo institucional.
-- A integração com o gateway de pagamento deve seguir os padrões de segurança PCI-DSS.
+- A integração com serviços de pagamento deverá utilizar conexões seguras e mecanismos de proteção de dados dos usuários, seguindo as boas práticas de segurança da informação.
 - Falhas na comunicação com APIs externas devem ser tratadas com mensagens de erro adequadas ao usuário, sem expor detalhes técnicos.
 
 ---
@@ -291,7 +291,7 @@ Essa separação garante flexibilidade de implantação: no caso da UFR, o front
 ### RF12 - Gerenciamento do Cardápio pelo Administrador
 *Prioridade:* Alta
 *Entradas:*
-- Dados do cardápio (data, tipo de refeição, itens do menu)
+- Dados do cardápio (data, horário de duração, tipo de refeição, itens do menu)
 *Saídas:*
 - Cardápio publicado e disponível para visualização pelos usuários
 - Confirmação de atualização ou mensagem de erro em caso de dados inválidos
