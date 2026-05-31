@@ -595,7 +595,7 @@ Todas as movimentações financeiras realizadas no sistema deverão ser registra
 
 ## 8.1 Visão Geral da Arquitetura
 
-O sistema adota arquitetura cliente-servidor desacoplada, com comunicação entre frontend e backend via REST API em formato JSON. O frontend é desenvolvido como PWA (Progressive Web App), acessível via navegador e instalável em dispositivos móveis e desktops. O backend expõe uma API REST consumida tanto pelo frontend do usuário quanto pelo painel administrativo.
+O sistema adota arquitetura cliente-servidor desacoplada, com comunicação entre frontend e backend via REST API em formato JSON. O frontend será desenvolvido como PWA (Progressive Web App), acessível via navegador e instalável em dispositivos móveis e desktops. O backend expõe uma API REST consumida tanto pelo frontend do usuário quanto pelo painel administrativo.
 
 A arquitetura é modular, permitindo que o módulo de interface opere de forma independente do módulo gerenciador, possibilitando integração com sistemas externos já existentes ou implantação completa em novas instituições.
 
