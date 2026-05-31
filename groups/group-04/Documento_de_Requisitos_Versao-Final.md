@@ -497,7 +497,7 @@ As rotinas de teste devem ser realizadas antes da publicação de novas versões
 
 ### 7.1 Reguladores
 
-### Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)
+### Lei Geral de Proteção de Dados (LGPD Lei nº 13.709/2018)
 O sistema PODE PAPAR deverá estar em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD), que regula o tratamento de dados pessoais no Brasil. Por tratar dados de estudantes e servidores públicos, incluindo informações de vínculo institucional, histórico financeiro e padrões de consumo, a plataforma se enquadra diretamente no escopo da lei.
 
 Embora o sistema atue de forma integrada ao ecossistema de dados da UFR via API do SUAP, a plataforma assegura a conformidade com a LGPD ao adotar o modelo de privacidade por design (privacy by design). O sistema não replicará a base de dados integral do SUAP, limitando-se ao consumo e exibição dos dados necessários para a operação do RU, garantindo que o trânsito de informações entre as plataformas ocorra sob protocolos de criptografia e autenticação segura.
@@ -505,7 +505,7 @@ Embora o sistema atue de forma integrada ao ecossistema de dados da UFR via API 
 As obrigações aplicáveis ao sistema incluem:
 
 - **Base legal para tratamento de dados:** O tratamento dos dados pessoais dos usuários deverá ser fundamentado em base legal prevista no Art. 7º da LGPD, especialmente no cumprimento de obrigação legal (prestação de serviço público) e no legítimo interesse institucional da UFR.
-- **Princípio da finalidade:** Os dados coletados deverão ser utilizados exclusivamente para as finalidades declaradas no sistema — autenticação, gestão de créditos, controle de acesso ao RU e comunicação institucional —, sendo vedado o uso para finalidades incompatíveis.
+- **Princípio da finalidade:** Os dados coletados deverão ser utilizados exclusivamente para as finalidades declaradas no sistema, autenticação, gestão de créditos, controle de acesso ao RU e comunicação institucional, sendo vedado o uso para finalidades incompatíveis.
 - **Princípio da minimização:** O sistema deverá coletar apenas os dados estritamente necessários para a execução de suas funcionalidades, evitando a coleta excessiva de informações pessoais.
 - **Relatório de Impacto à Proteção de Dados (RIPD):** Deverá ser elaborado um RIPD antes da entrada em produção do sistema, avaliando os riscos do tratamento de dados pessoais e as medidas adotadas para mitigá-los, conforme Art. 38 da LGPD.
 - **Incidentes de segurança:** Em caso de vazamento ou acesso não autorizado a dados pessoais, a UFR deverá comunicar o incidente à ANPD e aos titulares afetados em prazo razoável, conforme Art. 48 da LGPD.
@@ -513,8 +513,8 @@ As obrigações aplicáveis ao sistema incluem:
 ### Normas Específicas Aplicáveis
 - **Resolução CFM / Normas do Banco Central (Bacen):** As operações de pagamento via Pix deverão estar em conformidade com o Regulamento do Pix instituído pelo Banco Central do Brasil, respeitando os requisitos de segurança, autenticação e rastreabilidade das transações instantâneas.
 - **PCI-DSS (Payment Card Industry Data Security Standard):** O processamento de pagamentos via cartão de crédito deverá obedecer ao padrão PCI-DSS, conforme já previsto no requisito não funcional de segurança (RNF17). Isso implica que dados sensíveis de cartão jamais deverão ser armazenados diretamente no sistema, sendo delegados integralmente ao gateway de pagamento contratado.
-- **Decreto nº 8.777/2016 — Política de Dados Abertos do Poder Executivo Federal:** Como sistema de uma instituição federal, relatórios e dados estatísticos agregados e anonimizados poderão estar sujeitos a demandas de transparência ativa, devendo o sistema viabilizar a exportação de dados em formatos abertos quando solicitado.
-- **Lei de Acesso à Informação (LAI — Lei nº 12.527/2011):** Informações de caráter público relativas ao funcionamento do RU — como cardápios, comunicados e indicadores gerais de uso — deverão estar acessíveis em conformidade com os princípios de transparência da LAI, sem que isso implique exposição de dados pessoais dos usuários.
+- **Decreto nº 8.777/2016 Política de Dados Abertos do Poder Executivo Federal:** Como sistema de uma instituição federal, relatórios e dados estatísticos agregados e anonimizados poderão estar sujeitos a demandas de transparência ativa, devendo o sistema viabilizar a exportação de dados em formatos abertos quando solicitado.
+- **Lei de Acesso à Informação (LAI Lei nº 12.527/2011):** Informações de caráter público relativas ao funcionamento do RU como cardápios, comunicados e indicadores gerais de uso, deverão estar acessíveis em conformidade com os princípios de transparência da LAI, sem que isso implique exposição de dados pessoais dos usuários.
 
 ---
 
@@ -523,7 +523,7 @@ As obrigações aplicáveis ao sistema incluem:
 ### Não Discriminação
 O sistema deverá ser desenvolvido e operado de forma a garantir igualdade de acesso e tratamento a todos os membros da comunidade acadêmica da UFR, independentemente de condição socioeconômica, raça, gênero, deficiência ou qualquer outro fator que possa ensejar discriminação.
 
-- **Acessibilidade universal:** Conforme previsto nos requisitos RNF11 e RNF12, o sistema deverá oferecer recursos de acessibilidade, como alto contraste, alternância entre temas e suporte a leitores de tela, de modo a não excluir usuários com deficiência visual ou outras necessidades específicas.
+- **Acessibilidade universal:** Conforme previsto nos requisitos RNF03 e RNF04, o sistema deverá oferecer recursos de acessibilidade, como alto contraste, alternância entre temas e suporte a leitores de tela, de modo a não excluir usuários com deficiência visual ou outras necessidades específicas.
 - **Inclusão digital:** Reconhecendo que nem todos os usuários possuem familiaridade com plataformas digitais, o sistema deverá manter a coexistência com os guichês físicos de atendimento durante o período de transição, não forçando a exclusividade digital como condição de acesso ao serviço de alimentação.
 
 ### Transparência
@@ -531,16 +531,16 @@ O sistema deverá ser desenvolvido e operado de forma a garantir igualdade de ac
 - **Comunicação de alterações:** Qualquer modificação relevante nas regras de uso, preços das refeições ou funcionamento do sistema deverá ser comunicada aos usuários com antecedência adequada, por meio das notificações previstas no RF06.
 - **Uso de dados:** O sistema deverá informar aos usuários, de forma acessível, quais dados são coletados, com qual finalidade e por quanto tempo são armazenados, em conformidade com o princípio da transparência da LGPD.
 - **Feedbacks e avaliações:** O mecanismo de feedback sobre refeições (RF08) deverá ser conduzido de forma que o usuário compreenda o caráter anônimo de suas avaliações perante outros usuários e saiba que os dados agregados serão utilizados para fins de melhoria do serviço.
-- **Auditorias administrativas:** Todas as operações realizadas por administradores (especialmente ajustes manuais de crédito (RF11)) deverão ser registradas com identificação do responsável e justificativa, garantindo rastreabilidade e inibindo práticas arbitrárias ou abusivas.
+- **Auditorias administrativas:** Todas as operações realizadas por administradores (especialmente ajustes manuais de crédito RF11) deverão ser registradas com identificação do responsável e justificativa, garantindo rastreabilidade e inibindo práticas arbitrárias ou abusivas.
 
 ---
 
 ## 7.3 Legais
 
 - **Constituição Federal de 1988, Art. 6º:** O acesso à alimentação é direito social fundamental. O sistema, como instrumento de viabilização do RU, deverá ser desenvolvido de modo a não criar barreiras adicionais ao acesso à alimentação por parte dos estudantes, especialmente aqueles em situação de vulnerabilidade.
-- **Lei nº 9.784/1999 — Lei do Processo Administrativo Federal:** Como sistema de uma autarquia federal, os procedimentos administrativos realizados por meio da plataforma, tais quais como cadastro de usuários e ajustes de crédito, deverão observar os princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência previstos nesta lei.
-- **Lei nº 8.078/1990 — Código de Defesa do Consumidor (CDC):** Embora o RU não seja uma relação de consumo típica, as operações de recarga financeira realizadas no sistema envolvem transação econômica e deverão respeitar princípios de proteção ao consumidor, incluindo clareza nas condições de uso, direito à informação e ausência de práticas abusivas.
-- **Lei nº 12.527/2011 — Lei de Acesso à Informação:** Dados públicos relativos ao funcionamento do RU e ao uso dos recursos institucionais deverão estar disponíveis para acesso mediante solicitação formal, respeitados os limites de proteção de dados pessoais.
+- **Lei nº 9.784/1999 Lei do Processo Administrativo Federal:** Como sistema de uma autarquia federal, os procedimentos administrativos realizados por meio da plataforma, tais quais como cadastro de usuários e ajustes de crédito, deverão observar os princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência previstos nesta lei.
+- **Lei nº 8.078/1990 Código de Defesa do Consumidor (CDC):** Embora o RU não seja uma relação de consumo típica, as operações de recarga financeira realizadas no sistema envolvem transação econômica e deverão respeitar princípios de proteção ao consumidor, incluindo clareza nas condições de uso, direito à informação e ausência de práticas abusivas.
+- **Lei nº 12.527/2011 Lei de Acesso à Informação:** Dados públicos relativos ao funcionamento do RU e ao uso dos recursos institucionais deverão estar disponíveis para acesso mediante solicitação formal, respeitados os limites de proteção de dados pessoais.
 - **Decreto-Lei nº 200/1967 e legislação aplicável às IFES:** A UFR, como Instituição Federal de Ensino Superior, está sujeita ao controle da administração pública federal. O sistema deverá viabilizar a geração de informações compatíveis com as obrigações de prestação de contas aos órgãos de controle, como TCU e CGU.
 - **Marco Civil da Internet (Lei nº 12.965/2014):** O sistema deverá observar os princípios do Marco Civil da Internet no que se refere à proteção dos dados dos usuários, neutralidade de rede, responsabilidade dos provedores e guarda de registros de acesso, em conformidade com os Arts. 10 a 17 da referida lei.
 
