@@ -393,9 +393,9 @@ A aplicação cliente deverá operar os principais sistemas operacionais utiliza
 
 A infraestrutura do sistema deverá ser baseada em arquitetura web desacoplada, separando Front-end, Back-end e banco de dados, permitindo maior escalabilidade e facilidade de manutenção. O sistema deverá ser hospedado em servidores com suporte a:
 
-* APIs REST;
-* Banco de dados relationl;
-* Comunicação segura via HTTPS/TLS;
+* Mecanismos para integração e troca de informações entre os componentes do sistema (APIs REST);
+* Sistema de armazenamento estruturado para gerenciamento dos dados (Banco de dados relationl);
+* Comunicação segura via HTTPS/TLS, protegida para garantir a segurança das informações;
 * Rotinas automáticas de backup;
 * Monitoramento de disponibilidade e desempenho.
 
@@ -484,7 +484,7 @@ O código deve priorizar claramente e manutenção futura, além de cobertura su
 
 O sistema deverá possuir testes automatizados para validar o funcionamento das principais funcionalidades da aplicação.
 
-Os testes abragar:
+Os testes deverão abranger:
 
 * Testes unitários;
 * Testes de integração;
