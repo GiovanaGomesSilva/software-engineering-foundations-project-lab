@@ -432,9 +432,7 @@ Os registros administrativos deverão ter acesso restrito apenas a usuários aut
 
 ### Monitoramento
 
-O sistema deverá possuir mecanismos de monitoramento contínuo da aplicação e da infraestrutura, permitindo identificar falhas, lentidão ou indisponibilidade do serviço.
-
-O monitoramento deverá monitorar:
+O sistema deverá possuir mecanismos de monitoramento contínuo da aplicação e da infraestrutura, permitindo identificar falhas, lentidão ou indisponibilidade do serviço. Devendo monitorar:
 
 * Uso de CPU, memória e armazenamento;
 * Tempo médio de resposta das requisições;
