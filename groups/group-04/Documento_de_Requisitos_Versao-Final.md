@@ -342,42 +342,40 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ## 5.2 Eficiência
 
-* *RNF05* — O sistema deve responder às requisições em até 2 segundos em condições normais de uso, garantindo uma experiência ágil para os usuários.
-* *RNF06* — O sistema deve suportar múltiplos acessos simultâneos com perda mínima de desempenho, mantendo a estabilidade especialmente nos horários de pico do RU.
+* *RNF05* — O sistema deve manter sua estabilidade e usabilidade mesmo durante os horários de maior concentração de acessos, como os períodos que antecedem as refeições no Restaurante Universitário.
 
 ---
 
 ## 5.3 Desempenho
 
-* *RNF07* — O sistema deve responder às requisições em até 2 segundos em condições normais de uso.
-* *RNF08* — O sistema deve suportar múltiplos acessos simultâneos — estimados em até 1.000 usuários — com perda mínima de desempenho, garantindo estabilidade em horários de pico.
-* *RNF09* — O sistema deve estar disponível 99% do tempo, desconsiderando janelas de manutenção programadas previamente comunicadas aos usuários.
-* *RNF10* — O sistema deve apresentar tempo de recuperação rápido em caso de falhas, minimizando interrupções ao usuário e retomando a operação normal em até 15 minutos.
+* *RNF06* — O sistema deve proporcionar uma experiência de uso fluida, sem que o usuário perceba lentidão ou interrupções durante a navegação entre as funcionalidades principais.
+* *RNF07* — O sistema deve ser projetado para processar requisições de forma ágil em condições normais de operação. 
+* *RNF08* — O sistema deve suportar múltiplos acessos simultâneos, garantindo estabilidade especialmente nos horários de pico do Restaurante Universitário.
 
 ---
 
 ## 5.4 Espaço
 
-* *RNF11* — O sistema deve utilizar armazenamento de forma eficiente, priorizando a especificação de dados históricos com baixa frequência de acesso (ex.: relatórios e registros antigos).
-* *RNF12* — O uso de memória em servidor deve ser monitorado continuamente, com alertas automáticos ao atingir 80% da capacidade alocada.
-* *RNF13* — Dados de cardápio, saldo e histórico de transações devem ser dimensionados para suportar o crescimento da base de usuários da UFR sem manipulação de desempenho.
+* *RNF9* — O sistema deve utilizar armazenamento de forma eficiente, priorizando a especificação de dados históricos com baixa frequência de acesso (ex.: relatórios e registros antigos).
+* *RNF10* — O uso de memória em servidor deve ser monitorado continuamente, com alertas automáticos ao atingir níveis críticos da capacidade alocada.
+* *RNF11* — Dados de cardápio, saldo e histórico de transações devem ser dimensionados para suportar o crescimento da base de usuários da UFR sem manipulação de desempenho.
 
 ---
 
 ## 5.5 Confiabilidade
 
-* *RNF14* — O sistema deve estar disponível pelo menos 99% do tempo, desconsiderando as manutenções programadas.
-* *RNF15* — O sistema deve possuir mecanismos de backup automático de dados, com cópias realizadas diariamente e armazenadas em local seguro e geograficamente separado.
-* *RNF16* — O sistema deve possuir mecanismos de recuperação de falhas que permitam o restabelecimento da operação em tempo hábil, com perda mínima ou nula de dados.
-* *RNF17* — O sistema deve garantir a integridade dos dados durante operações de recarga e pagamento, utilizando transações atômicas para evitar inconsistências em caso de falha parcial.
+* *RNF12* — O sistema deve estar disponível na maior parte do tempo, desconsiderando as manutenções programadas.
+* *RNF13* — O sistema deve possuir mecanismos de backup automático de dados, com cópias realizadas diariamente e armazenadas em local seguro e geograficamente separado.
+* *RNF14* — O sistema deve possuir mecanismos de recuperação de falhas que permitam o restabelecimento da operação em tempo hábil, com perda mínima ou nula de dados.
+* *RNF15* — O sistema deve garantir a integridade dos dados durante operações de recarga e pagamento, utilizando transações atômicas para evitar inconsistências em caso de falha parcial.
 
 ---
 
 ## 5.6 Segurança (Proteção)
 
-* *RNF18* — O acesso ao sistema deve ser limitado à autenticação via SUAP, não sendo permitidas formas alternativas de login ou criação de senhas locais.
-* *RNF19* — O sistema deve garantir a integridade e o sigilo das informações durante todas as operações financeiras, em conformidade com os padrões de segurança aplicáveis (ex.: PCI-DSS para transações com cartão).
-* *RNF20* — O sistema deve implementar controle de acesso baseado em perfis (RBAC), garantindo que cada usuário acesse apenas os recursos e dados compatíveis com seu nível de permissão (estudante, servidor ou administrador).
+* *RNF16* — O acesso ao sistema deve ser limitado à autenticação via SUAP, não sendo permitidas formas alternativas de login ou criação de senhas locais.
+* *RNF17* — O sistema deve garantir a integridade e o sigilo das informações durante todas as operações financeiras, em conformidade com os padrões de segurança aplicáveis (ex.: PCI-DSS para transações com cartão).
+* *RNF18* — O sistema deve implementar controle de acesso baseado em perfis, garantindo que cada usuário acesse apenas os recursos e dados compatíveis com seu nível de permissão (estudante, servidor ou administrador).
 
 ---
 
@@ -389,7 +387,7 @@ Essa separação garante flexibilidade de implantação. No caso da UFR, o front
 
 ### Sistema Operacional
 
-O sistema deverá ser compatível com ambientes Linux para hospedagem em servidores, devido à sua estabilidade, segurança e ampla utilização em aplicações web modernas. A aplicação cliente deverá operar os principais sistemas operacionais utilizados pela comunidade acadêmica, incluindo Windows, Linux e Android, por meio de navegadores atualizados compatíveis com os padrões web modernos.
+A aplicação cliente deverá operar os principais sistemas operacionais utilizados pela comunidade acadêmica, incluindo Windows, Linux e Android, por meio de navegadores atualizados compatíveis com os padrões web modernos. Enquanto o sistema deverá ser compatível com ambientes Linux para hospedagem em servidores, devido à sua estabilidade, segurança e ampla utilização em aplicações web modernas. 
 
 ### Infraestrutura
 
