@@ -498,7 +498,7 @@ As rotinas de teste devem ser realizadas antes da publicação de novas versões
 ### 7.1 Reguladores
 
 ### Lei Geral de Proteção de Dados (LGPD Lei nº 13.709/2018)
-O sistema PODE PAPAR deverá estar em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD), que regula o tratamento de dados pessoais no Brasil. Por tratar dados de estudantes e servidores públicos, incluindo informações de vínculo institucional, histórico financeiro e padrões de consumo, a plataforma se enquadra diretamente no escopo da lei.
+O sistema JÁ PODE PAPAR deverá estar em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD), que regula o tratamento de dados pessoais no Brasil. Por tratar dados de estudantes e servidores públicos, incluindo informações de vínculo institucional, histórico financeiro e padrões de consumo, a plataforma se enquadra diretamente no escopo da lei.
 
 Embora o sistema atue de forma integrada ao ecossistema de dados da UFR via API do SUAP, a plataforma assegura a conformidade com a LGPD ao adotar o modelo de privacidade por design (privacy by design). O sistema não replicará a base de dados integral do SUAP, limitando-se ao consumo e exibição dos dados necessários para a operação do RU, garantindo que o trânsito de informações entre as plataformas ocorra sob protocolos de criptografia e autenticação segura.
 
@@ -541,7 +541,7 @@ O sistema deverá ser desenvolvido e operado de forma a garantir igualdade de ac
 - **Lei nº 9.784/1999 Lei do Processo Administrativo Federal:** Como sistema de uma autarquia federal, os procedimentos administrativos realizados por meio da plataforma, tais quais como cadastro de usuários e ajustes de crédito, deverão observar os princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência previstos nesta lei.
 - **Lei nº 8.078/1990 Código de Defesa do Consumidor (CDC):** Embora o RU não seja uma relação de consumo típica, as operações de recarga financeira realizadas no sistema envolvem transação econômica e deverão respeitar princípios de proteção ao consumidor, incluindo clareza nas condições de uso, direito à informação e ausência de práticas abusivas.
 - **Lei nº 12.527/2011 Lei de Acesso à Informação:** Dados públicos relativos ao funcionamento do RU e ao uso dos recursos institucionais deverão estar disponíveis para acesso mediante solicitação formal, respeitados os limites de proteção de dados pessoais.
-- **Decreto-Lei nº 200/1967 e legislação aplicável às IFES:** A UFR, como Instituição Federal de Ensino Superior, está sujeita ao controle da administração pública federal. O sistema deverá viabilizar a geração de informações compatíveis com as obrigações de prestação de contas aos órgãos de controle, como TCU e CGU.
+- **Decreto-Lei nº 200/1967 e legislação aplicável às IFES:** A UFR, como Instituição Federal de Ensino Superior, está sujeita ao controle da administração pública federal. O sistema deverá viabilizar a geração de informações compatíveis com as obrigações de prestação de contas aos órgãos de controle, como o TCU (Tribunal de Contas da União) e a CGU (Controladoria-Geral da União).
 - **Marco Civil da Internet (Lei nº 12.965/2014):** O sistema deverá observar os princípios do Marco Civil da Internet no que se refere à proteção dos dados dos usuários, neutralidade de rede, responsabilidade dos provedores e guarda de registros de acesso, em conformidade com os Arts. 10 a 17 da referida lei.
 
 ---
