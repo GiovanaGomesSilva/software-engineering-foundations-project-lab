@@ -674,7 +674,7 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 **Ator:** Usuário institucional
 
-**Descrição:** Permite que estudantes e servidores acessem o sistema utilizando suas credenciais institucionais por meio da integração com o SUAP.
+**Descrição:** Permite que estudantes e servidores da UFR acessem o sistema utilizando suas credenciais institucionais por meio da integração com o SUAP.
 
 **Fluxo principal:**  
 1. O usuário acessa o sistema pelo navegador ou pela PWA instalada.
@@ -697,7 +697,7 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 **Ator:** Usuário institucional autenticado
 
-**Descrição:** Permite que o usuário consulte o saldo disponível em sua conta do RU, evitando a necessidade de consulta presencial.
+**Descrição:** Permite que o usuário consulte o saldo disponível em sua conta do RU.
 
 **Fluxo principal:**  
 1. O usuário acessa o sistema autenticado.
@@ -717,7 +717,7 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 **Ator:** Usuário institucional autenticado
 
-**Descrição:** Permite que o usuário adicione créditos à sua conta por meio de pagamento digital, utilizando Pix ou cartão de crédito, conforme disponibilidade da instituição.
+**Descrição:** Permite que o usuário adicione créditos à sua conta por meio de pagamento digital, utilizando Pix ou cartão de crédito.
 
 **Fluxo principal:**  
 1. O usuário acessa a área de recarga.
@@ -820,17 +820,19 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 
 ### UC08 - Realizar Check-in no RU
 
-**Ator:** Usuário institucional
+**Ator:** Catraca do RU (sistema externo)
 
-**Descrição:** Permite registrar a entrada do usuário no Restaurante Universitário e debitar automaticamente o valor correspondente à refeição.
+**Descrição:** Registra a entrada do usuário no Restaurante Universitário a partir da leitura de identificação pela catraca, debitando automaticamente o valor da refeição.
 
 **Fluxo principal:**  
-1. O usuário se identifica no acesso ao RU.
-2. O sistema recebe a identificação do usuário.
-3. O sistema verifica se existe saldo suficiente.
-4. O sistema debita o valor correspondente à refeição.
-5. O sistema registra o check-in com data e hora.
-6. O acesso ao RU é liberado.
+1. A catraca lê a identificação do usuário (cartão, QR code etc.).
+2. A catraca envia a identificação ao sistema.
+3. O sistema valida o cadastro do usuário.
+4. O sistema verifica se há saldo suficiente para a refeição.
+5. O sistema debita o valor correspondente.
+6. O sistema registra o check-in com data e hora.
+7. O sistema envia confirmação à catraca.
+8. A catraca libera a entrada do usuário.
 
 **Fluxo alternativo:**  
 - Caso o saldo seja insuficiente, o sistema bloqueia o check-in e exibe uma mensagem informativa.
@@ -1013,27 +1015,6 @@ O uso de Docker contribui para padronizar o ambiente de execução e facilitar a
 - Caso não existam feedbacks registrados, o sistema exibe uma mensagem informativa.
 - Caso existam comentários ofensivos ou inadequados, o administrador poderá tratá-los conforme regras internas da instituição.
 - Caso os dados sejam exportados para fins estatísticos, o sistema deve preservar a privacidade dos usuários.
-
----
-
-### UC17 - Integrar com APIs Externas
-
-**Ator:** Sistema
-
-**Descrição:** Permite que o sistema se comunique com serviços externos, como SUAP e gateway de pagamento, para autenticação, validação de dados e processamento de transações.
-
-**Fluxo principal:**  
-1. O sistema identifica a necessidade de comunicação com uma API externa.
-2. O sistema envia a requisição com os dados necessários.
-3. A API externa processa a solicitação.
-4. A API externa retorna uma resposta ao sistema.
-5. O sistema interpreta a resposta recebida.
-6. O sistema atualiza as informações internas conforme o resultado.
-
-**Fluxo alternativo:**  
-- Caso a API externa esteja indisponível, o sistema exibe uma mensagem adequada ao usuário ou operador.
-- Caso a resposta da API seja inválida, o sistema registra o erro.
-- Caso ocorra falha em uma transação financeira, o sistema não deve alterar o saldo do usuário até a confirmação da operação.
 
 ---
 
