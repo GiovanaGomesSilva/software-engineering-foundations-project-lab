@@ -1,4 +1,4 @@
-#  Documento de Requisitos e Projeto de Software
+<img width="1440" height="1640" alt="image" src="https://github.com/user-attachments/assets/ecc77e71-8743-43a6-910a-f74da029ec6d" />#  Documento de Requisitos e Projeto de Software
 
 ---
 
@@ -1093,11 +1093,12 @@ O diagrama de classes representa:
 +------------------+
 | - id             |
 | - nome           |
-| - email          |
+| - vinculo: Enum {estudante, servidor, admin}          |
 | - senha          |
 +------------------+
-| + login()        |
-| + logout()       |
+| + autenticar()        |
+| + consultarSaldo()       |
+| + enviarFeedback()       |
 +------------------+
 ```
 
