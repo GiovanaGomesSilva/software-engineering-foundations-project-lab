@@ -1058,7 +1058,8 @@ O diagrama de classes representa:
 
 Representa o fluxo de execução de processos no sistema.
 
-<img width="10608" height="5664" alt="pode_papar_activity_diagram" src="https://github.com/user-attachments/assets/51cb0ce2-2535-4818-a422-8102f0764cac" />
+<img width="10608" height="5664" alt="pode_papar_activity_diagram(1)" src="https://github.com/user-attachments/assets/1b28760b-ed46-4d96-b4e0-ef9c0ca57ae4" />
+
 
 ---
 
