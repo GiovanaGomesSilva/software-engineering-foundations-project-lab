@@ -1034,44 +1034,8 @@ Os diagramas ajudam na:
 
 Os casos de uso representam as interações entre usuários (atores) e o sistema.
 
----
+<img width="2829" height="3638" alt="Blank diagram" src="https://github.com/user-attachments/assets/81802593-761c-4ba7-8fd4-e0a86aa57b7d" />
 
-### UC01 - Realizar Login
-
-**Ator:** Usuário  
-
-**Descrição:**  
-Permite que o usuário acesse o sistema utilizando credenciais válidas.
-
----
-
-### Fluxo principal
-1. Usuário acessa a tela de login  
-2. Usuário informa e-mail e senha  
-3. Sistema valida credenciais  
-4. Sistema libera acesso  
-
----
-
-### Fluxo alternativo
-- Credenciais inválidas  
-- Usuário esqueceu senha  
-
----
-
-## Exemplo de Diagrama de Caso de Uso
-
-[Usuário]
-
-    |
-    
-    | ---- (Realizar Login)
-    
-    | ---- (Cadastrar Conta)
-    
-    | ---- (Recuperar Senha) 
-
----
 
 ## 9.2 Diagrama de Classes (UML)
 
@@ -1085,35 +1049,8 @@ O diagrama de classes representa:
 
 ---
 
-### Exemplo
+<img width="4585" height="2405" alt="UML class" src="https://github.com/user-attachments/assets/b9fbee94-219f-4848-baa7-e4f20714429b" />
 
-```text
-+------------------+
-|     Usuário      |
-+------------------+
-| - id             |
-| - nome           |
-| - vinculo: Enum {estudante, servidor, admin}          |
-| - senha          |
-+------------------+
-| + autenticar()        |
-| + consultarSaldo()       |
-| + enviarFeedback()       |
-+------------------+
-```
-
----
-
-### Exemplo com relacionamento
-
-```text
-+------------------+        +------------------+
-|     Usuário      | 1    * |      Pedido      |
-+------------------+--------+------------------+
-| id               |        | id               |
-| nome             |        | valor            |
-+------------------+        +------------------+
-```
 
 ---
 
